@@ -1,4 +1,4 @@
-# bookaholic-mobile
+# bookaholic-mobile-seller
 
 #Bookaholic
 Bookaholic is a website dedicated to providing a wide range of books for readers of all ages and interests. Our website offers a simple and user-friendly interface, allowing you to browse and purchase books with ease.
