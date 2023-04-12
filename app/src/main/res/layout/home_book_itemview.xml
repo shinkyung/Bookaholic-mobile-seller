@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_book_home_itemview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="5dp"
+    android:layout_marginHorizontal="20dp"
+    android:background="@drawable/rounded_rectangle"
+    android:paddingVertical="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imageview_book_home_itemview"
+        android:background="@drawable/rounded_rectangle"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:layout_marginStart="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/book_image" />
+
+    <TextView
+        android:id="@+id/textview_bookname_home_itemview"
+        android:text="Here to show book name"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/imageview_book_home_itemview"
+        app:layout_constraintTop_toTopOf="@id/imageview_book_home_itemview"
+        app:layout_constraintBottom_toTopOf="@id/textview_bookprice_home_itemview"/>
+
+    <TextView
+        android:id="@+id/textview_bookprice_home_itemview"
+        android:text="Here to show book price"
+        android:textSize="20sp"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textview_bookname_home_itemview"
+        app:layout_constraintBottom_toTopOf="@id/textview_booktypetitle_home_itemview"
+        app:layout_constraintStart_toStartOf="@id/textview_bookname_home_itemview"/>
+
+    <TextView
+        android:id="@+id/textview_booktypetitle_home_itemview"
+        android:text="@string/book_type"
+        android:textSize="20sp"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textview_bookprice_home_itemview"
+        app:layout_constraintStart_toStartOf="@id/textview_bookname_home_itemview"
+        app:layout_constraintBottom_toTopOf="@id/textview_bookauthortitle_home_itemview"/>
+
+    <TextView
+        android:id="@+id/textview_booktype_home_itemview"
+        android:textSize="20sp"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintStart_toEndOf="@id/textview_booktypetitle_home_itemview"
+        app:layout_constraintTop_toTopOf="@id/textview_booktypetitle_home_itemview"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_bookauthortitle_home_itemview"
+        android:text="@string/book_author"
+        android:textSize="20sp"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textview_booktypetitle_home_itemview"
+        app:layout_constraintStart_toStartOf="@id/textview_bookname_home_itemview"
+        app:layout_constraintBottom_toBottomOf="@id/imageview_book_home_itemview"/>
+
+    <TextView
+        android:id="@+id/textview_bookauthor_home_itemview"
+        android:textSize="20sp"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintStart_toEndOf="@id/textview_bookauthortitle_home_itemview"
+        app:layout_constraintTop_toTopOf="@id/textview_bookauthortitle_home_itemview"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

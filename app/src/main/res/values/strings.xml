@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Bookaholic</string>
+    <string name="home_english">Home</string>
+    <string name="book_image">Book Image</string>
+    <string name="book_type">Thể loại:</string>
+    <string name="book_title">example</string>
+    <string name="book_author">Tác giả:</string>
+    <string name="buy_btn">Buy</string>
+    <string name="price">example</string>
+    <string name="app_banner">App Banner</string>
+    <string name="welcome_to_bookaholic">Chào mừng bạn đến với Bookaholic!</string>
+    <string name="hi">Hi</string>
+    <string name="cart">Cart</string>
+    <string name="filter">Filter</string>
+    <string name="app_logo">App Logo</string>
+    <string name="example_description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="try_connect_again">Thử kết nối lại</string>
+    <string name="you_havent_verify_email">Bạn chưa xác thực tài khoản, hãy kiểm tra email để xác thực tài khoản nhé</string>
+    <string name="sign_in_sucess">Đăng nhập thành công!</string>
+    <string name="sign_in_failed">Đăng nhập không thành công! Vui lòng đảm bảo kết nối internet và kiểm tra lại email, mật khẩu</string>
+    <string name="error_occurred_pls_try_again_later">Đã có lỗi xảy ra, xin thông cảm và thử lại sau.</string>
+    <string name="invalid_email">Địa chỉ Email không hợp lệ!</string>
+    <string name="failed_to_register">Đăng kí tài khoản không thành công!\nCó thể email này đã được sử dụng</string>
+    <string name="invalid_password">Mật khẩu không hợp lệ! Mật khẩu phải chứa ít nhất 6 kí tự và không chứa khoảng trắng</string>
+    <string name="register_successful">Đăng kí tài khoản thành công! Vui lòng kiểm tra email để xác thực tài khoản trước khi đăng nhập!</string>
+    <string name="send_verification_email_failed">Gửi email xác thực không thành công! Vui lòng thử lại sau</string>
+    <string name="please_check_your_internet">Vui lòng kiểm tra lại kết nối internet!</string>
+    <string name="oops_no_internet">Kết nối thất bại!</string>
+    <string name="still_no_internet"><![CDATA[Vẫn chưa có kết nối internet]]></string>
+    <string name="fail_login">Tài khoản hoặc mật khẩu không chính xác</string>
+    <string name="empty_text">Vui lòng không để trống ô nhập</string>
+    <string name="confirm_password">Mật khẩu không trùng khớp</string>
+    <string name="filter_title">Bộ lọc sản phẩm</string>
+    <string name="typeFilterTitle">Thể loại</string>
+    <string name="mystery">Bí ẩn</string>
+    <string name="romance">Tình cảm</string>
+    <string name="authorFilterTitle">Tác giả</string>
+    <string name="science">Khoa học</string>
+    <string name="horror">Kinh dị</string>
+    <string name="selfhelp">Truyền cảm hứng</string>
+    <string name="shortstories">Truyện ngắn</string>
+    <string name="cookbooks">Nấu ăn</string>
+    <string name="essay">Bài luận</string>
+    <string name="history">Lịch sử</string>
+    <string name="priceFilterTitle">Giá</string>
+    <string name="minimumPrice">Tối thiểu</string>
+    <string name="maximumPrice">Tối đa</string>
+    <string name="reset">Đặt lại</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="list_branch">list_branch</string>
+    <string name="list_branch_heading">Danh sách cửa hàng</string>
+    <string name="user_profile">Tài khoản</string>
+    <string name="phone">Điện thoại</string>
+    <string name="added_to_favorites">Đã thêm vào danh sách yêu thích</string>
+    <string name="removed_from_favorites">Đã xoá khỏi danh sách yêu thích</string>
+    <string name="added_to_cart">Đã thêm vào giỏ hàng</string>
+    <string name="removed_remove_from_cart">Đã xoá khỏi giỏ hàng</string>
+    <string name="image_empty">Vui lòng chọn ảnh</string>
+    <string name="wishlist_title">Danh sách yêu thích</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="categories_array">
+        <item>Romance</item>
+        <item>Mystery</item>
+        <item>Horror</item>
+        <item>Short Stories</item>
+        <item>Cookbooks</item>
+        <item>Essays</item>
+        <item>History</item>
+        <item>Science</item>
+    </string-array>
+
+
+</resources>
