@@ -24,14 +24,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.bookaholic.AddBook;
 import com.example.bookaholic.Comment;
-import com.example.bookaholic.CreateVoucher;
-import com.example.bookaholic.ManageBook;
 import com.example.bookaholic.Order;
 import com.example.bookaholic.OrderBook;
 import com.example.bookaholic.R;
 import com.example.bookaholic.SignInActivity;
-import com.example.bookaholic.orderHistory.OrderHistory;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -285,7 +283,7 @@ public class Detail extends AppCompatActivity {
         shoppingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Detail.this, CreateVoucher.class));
+                startActivity(new Intent(Detail.this, AddBook.class));
             }
         });
 

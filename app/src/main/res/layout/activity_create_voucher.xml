@@ -125,7 +125,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_text_border"
                     android:gravity="start|center_vertical"
-                    android:paddingStart="100dp"
+                    android:paddingStart="5dp"
                     android:spinnerMode="dropdown"
                     android:textColor="@android:color/black" />
             </LinearLayout>
