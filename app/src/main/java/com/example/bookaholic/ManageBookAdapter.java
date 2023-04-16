@@ -58,7 +58,7 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, UpdateBook.class);
-                intent.putExtra("selectedBook", currentBook);
+                intent.putExtra("selectedBook", currentBook.getTitle());
                 mContext.startActivity(intent);
             }
         });
@@ -67,7 +67,7 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, RemoveBook.class);
-                intent.putExtra("selectedBook", currentBook);
+                intent.putExtra("selectedBook", currentBook.getTitle());
                 notifyItemRemoved(position);
                 notifyDataSetChanged();
                 mContext.startActivity(intent);

@@ -11,7 +11,7 @@
     android:layout_gravity="bottom"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="48dp">
+    app:cardCornerRadius="40dp">
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"

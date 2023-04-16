@@ -2,6 +2,7 @@ package com.example.bookaholic;
 
 import static android.content.ContentValues.TAG;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +22,8 @@ import com.example.bookaholic.details.Book;
 import com.example.bookaholic.details.Detail;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.BestSellerViewHolder> {
@@ -53,6 +56,7 @@ public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.Be
                 .into(holder.mImageView);
         holder.layout.setOnClickListener(v -> startBookDetailsActivity(book));
         holder.nameView.setText(book.getTitle());
+        holder.buyerView.setText(book.getBuyer().toString());
     }
 
     @Override
@@ -64,13 +68,14 @@ public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.Be
 
         private ImageView mImageView;
         private ConstraintLayout layout;
-        private TextView nameView;
+        private TextView nameView, buyerView;
 
         public BestSellerViewHolder(@NonNull View itemView) {
             super(itemView);
             layout = itemView.findViewById(R.id.layout_best_seller_itemview);
             mImageView = itemView.findViewById(R.id.bestseller_image);
             nameView = itemView.findViewById(R.id.best_seller_name);
+            buyerView = itemView.findViewById(R.id.textview_bookbuyer);
         }
     }
 
@@ -84,5 +89,16 @@ public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.Be
         } catch (Exception e) {
             Log.d(TAG, e.toString());
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void filterByBuyer() {
+        this.listBooks.clear();
+        ArrayList<Book> books = Book.allBooks;
+        Collections.sort(books, Comparator.comparingInt(Book::getBuyer).reversed());
+        for (int i = 0; i < Math.min(Book.allBooks.size(), 5); i++) {
+            this.listBooks.add(books.get(i));
+        }
+        notifyDataSetChanged();
     }
 }

@@ -2,7 +2,6 @@ package com.example.bookaholic;
 
 import static android.content.ContentValues.TAG;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -24,7 +22,6 @@ import com.example.bookaholic.details.Book;
 import com.example.bookaholic.details.Detail;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
@@ -82,7 +79,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
         holder.bookNameTextView.setText(orderBook.getBook().getTitle());
         holder.bookQuantityTextView.setText(String.valueOf(orderBook.getQuantity()));
-        holder.bookPriceTextView.setText(orderBook.getBook().getDisplayablePrice());
+        holder.bookPriceTextView.setText(orderBook.getBook().displayablePrice());
         Glide.with(context)
                 .load(orderBook.book.getImages().get(0))
                 .into(holder.bookImageView);

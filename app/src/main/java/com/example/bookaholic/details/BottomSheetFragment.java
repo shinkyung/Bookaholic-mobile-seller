@@ -43,17 +43,17 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         this.type = type;
         this.context = context;
     }
- public BottomSheetFragment(String authorContent,String categoryContent,String dateContent,String coverTypeContent,String sizeContent,int numberPageContent, String mPublisher, Integer type, Context context) {
-     this.mAuthorContent = authorContent;
-     this.mCategoryContent = categoryContent;
-     this.mDateContent = dateContent;
-     this.mCoverTypeContent = coverTypeContent;
-     this.mSizeContent = sizeContent;
-     this.mNumberPageContent = numberPageContent;
-     this.type = type;
-     this.mPublisher = mPublisher;
-     this.context = context;
- }
+     public BottomSheetFragment(String authorContent,String categoryContent,String dateContent,String coverTypeContent,String sizeContent,int numberPageContent, String mPublisher, Integer type, Context context) {
+         this.mAuthorContent = authorContent;
+         this.mCategoryContent = categoryContent;
+         this.mDateContent = dateContent;
+         this.mCoverTypeContent = coverTypeContent;
+         this.mSizeContent = sizeContent;
+         this.mNumberPageContent = numberPageContent;
+         this.type = type;
+         this.mPublisher = mPublisher;
+         this.context = context;
+     }
 
 
     public static BottomSheetFragment newInstance(ArrayList<Comment> comments, Integer type, Context context) {
@@ -75,7 +75,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         });
         fragmentManager = getChildFragmentManager().beginTransaction();
         if (type == 1) {
-            ReviewFragment reviewFragment = ReviewFragment.newInstance(comments, context);
+            ReviewFragment reviewFragment = ReviewFragment.newInstance(comments, getActivity());
 
             fragmentManager.replace(R.id.fragmentContainer, reviewFragment);
             fragmentManager.commit();

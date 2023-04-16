@@ -60,7 +60,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
                 .into(holder.avatarItem);
         holder.nameItem.setText(comment.getName());
         holder.contentItem.setText(comment.getContent());
-        holder.ratingBar.setRating(comment.getRating());
+        holder.ratingBar.setRating(comment.getRate());
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.example.bookaholic;
 
 import static android.content.ContentValues.TAG;
 
-import static com.example.bookaholic.FirebaseHelper.downloadFile;
 import static com.example.bookaholic.MainActivity.currentSyncedUser;
 
 import android.annotation.SuppressLint;
@@ -111,7 +110,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
                     .load(book.getImages().get(0))
                     .into(holder.imageView);
             holder.nameView.setText(book.getTitle());
-            holder.priceView.setText(book.getDisplayablePrice());
+            holder.priceView.setText(book.displayablePrice());
             holder.typesView.setText(book.getCategory());
             holder.authorView.setText(book.getAuthor());
             holder.layout.setOnClickListener(v -> startBookDetailsActivity(book));

@@ -15,29 +15,51 @@
         android:layout_height="match_parent"
         android:id="@+id/layout_best_seller_itemview">
 
-        <ImageView
-            android:id="@+id/bestseller_image"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_margin="15dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/img1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/best_seller_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bestseller_image" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/bestseller_image"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/img1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/best_seller_name" />
+
+        <TextView
+            android:id="@+id/best_seller_buyer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft ="20dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/book_buyer"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bestseller_image" />
+
+        <TextView
+            android:id="@+id/textview_bookbuyer"
+            android:text="book buyer"
+            android:textSize="12sp"
+            android:layout_marginLeft ="2dp"
+            android:textColor="?attr/colorOnSurface"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/bestseller_image"
+            app:layout_constraintStart_toEndOf="@id/best_seller_buyer"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

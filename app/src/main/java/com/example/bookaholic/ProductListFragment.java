@@ -36,6 +36,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookaholic.details.Book;
+import com.nex3z.notificationbadge.NotificationBadge;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +65,6 @@ public class ProductListFragment extends Fragment implements UserDataChangedList
 
     private RecyclerView bestSellerRecyclerView;
     private BestSellerAdapter bestSellerAdapter;
-
     public ProductListFragment() {
 
     }
@@ -104,6 +104,7 @@ public class ProductListFragment extends Fragment implements UserDataChangedList
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         bestSellerAdapter = new BestSellerAdapter(view.getContext(), Book.allBooks);
+        bestSellerAdapter.filterByBuyer();
         bestSellerRecyclerView = view.findViewById(R.id.bestSellerRecyclerView);
         bestSellerRecyclerView.setAdapter(bestSellerAdapter);
 
@@ -264,6 +265,7 @@ public class ProductListFragment extends Fragment implements UserDataChangedList
     public void notifyAdapter() {
         adapter.setBooks(Book.allBooks);
         bestSellerAdapter.setBooks(Book.allBooks);
+        bestSellerAdapter.filterByBuyer();
         adapter.notifyDataSetChanged();
         bestSellerAdapter.notifyDataSetChanged();
     }

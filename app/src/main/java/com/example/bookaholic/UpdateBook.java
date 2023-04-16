@@ -74,7 +74,8 @@ public class UpdateBook extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        selectedBook = (Book) getIntent().getSerializableExtra("selectedBook");
+//        selectedBook = (Book) getIntent().getSerializableExtra("selectedBook");
+        selectedBook = Book.findBookByTitle(getIntent().getExtras().getString("selectedBook"));
         System.out.println(selectedBook.getCategory());
         binding = ActivityUpdateBookBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

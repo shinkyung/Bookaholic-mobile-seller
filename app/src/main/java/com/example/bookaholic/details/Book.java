@@ -1,16 +1,10 @@
 package com.example.bookaholic.details;
 
-import static android.content.ContentValues.TAG;
-
 import android.annotation.SuppressLint;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -20,14 +14,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import com.example.bookaholic.Comment;
-import com.example.bookaholic.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 public class Book implements Serializable {
     @Exclude
@@ -155,7 +142,7 @@ public class Book implements Serializable {
         this.description = description;
     }
 
-    public float getRateAvg(){
+    public float rateAvg(){
         float sum = 0;
         if (comments == null)
             return 0;
@@ -179,7 +166,6 @@ public class Book implements Serializable {
     public void setPrice(int price) {
         this.price = price;
     }
-
     public ArrayList<Comment> getComments() {
         return comments;
     }
@@ -203,7 +189,7 @@ public class Book implements Serializable {
     }
 
     @SuppressLint("DefaultLocale")
-    public String getDisplayablePrice() {
+    public String displayablePrice() {
         String str = NumberFormat.getNumberInstance(Locale.US).format(price);
         str += " đ";
         return str;
@@ -314,8 +300,8 @@ public class Book implements Serializable {
         result.put("typeOfCover", typeOfCover);
         result.put("images", images);
         result.put("buyer", buyer);
-        result.put("displayablePrice", getDisplayablePrice());
-        result.put("rateAvg", getRateAvg());
+        result.put("displayablePrice", displayablePrice());
+        result.put("rateAvg", rateAvg());
         result.put("recentlyDate", recentlyDate);
         result.put("id", id);
 

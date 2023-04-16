@@ -4,6 +4,10 @@ public class OrderBook {
     public Book book;
     public int quantity;
 
+    public OrderBook(){
+        this.book = new Book();
+        this.quantity = 0;
+    }
     public OrderBook(Book book, int quantity) {
         this.book = book;
         this.quantity = quantity;

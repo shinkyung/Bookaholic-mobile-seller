@@ -20,13 +20,24 @@
 
     </androidx.appcompat.widget.SearchView>
 
+    <com.nex3z.notificationbadge.NotificationBadge
+        android:id="@+id/shopping_badge"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imagebutton_home_mycart"
+        app:layout_constraintEnd_toStartOf="@+id/imagebutton_home_mycart"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imagebutton_home_mycart"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:nbMaxTextLength="2" />
+
     <ImageButton
-        style="@style/cartBtn"
         android:id="@+id/imagebutton_home_mycart"
+        style="@style/cartBtn"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="18dp"
-        android:layout_marginEnd="30dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/cart"
         android:scaleType="fitXY"
@@ -58,18 +69,31 @@
         app:layout_constraintStart_toEndOf="@id/searchview_home"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/top_5_best_seller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:text="@string/top_5_best_seller"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/searchview_home"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bestSellerRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchview_home"
+        app:layout_constraintTop_toBottomOf="@id/top_5_best_seller"
         android:orientation="horizontal" />
 
     <androidx.recyclerview.widget.RecyclerView

@@ -1,34 +1,29 @@
 package com.example.bookaholic;
 
-import com.example.bookaholic.details.Book;
-
-import org.checkerframework.checker.units.qual.A;
-
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Order {
     public static Order currentOrder = new Order();
     private ArrayList<OrderBook> orderBooks;
-    private User user;
     private String address;
     private double totalPrice;
     private String orderStatus;
-    private Date createdAt;
+    private String createdAt;
 
     public Order() {
         this.orderBooks = new ArrayList<>();
-        this.user = MainActivity.currentSyncedUser;
         this.address = "";
         this.totalPrice = 0;
         this.orderStatus = "Incomplete";
-        this.createdAt = new Date();
+        Date now = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        createdAt = dateFormat.format(now);
     }
 
-    public Order(ArrayList<OrderBook> orderBooks, User user, String address, double totalPrice, String orderStatus, Date createdAt) {
+    public Order(ArrayList<OrderBook> orderBooks, String address, double totalPrice, String orderStatus, String createdAt) {
         this.orderBooks = orderBooks;
-        this.user = user;
         this.address = address;
         this.totalPrice = totalPrice;
         this.orderStatus = orderStatus;
@@ -43,13 +38,6 @@ public class Order {
         this.orderBooks = orderBooks;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public String getAddress() {
         return address;
@@ -59,7 +47,7 @@ public class Order {
         this.address = address;
     }
 
-    public double getTotalPrice() {
+    public Double getTotalPrice() {
         return totalPrice;
     }
 
@@ -75,17 +63,17 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public Date getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
     public void addOrderBook(OrderBook currentBook) { this.orderBooks.add(currentBook); }
 
-    public Integer getOrderSize() { return orderBooks.size(); }
+    public Integer orderSize() { return orderBooks.size(); }
 
     public boolean checkOrderBook(OrderBook orderBook) {
         for (OrderBook book : orderBooks){
@@ -102,5 +90,9 @@ public class Order {
                 return;
             }
         }
+    }
+
+    public Integer quantity() {
+        return orderBooks.size();
     }
 }

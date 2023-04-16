@@ -12,9 +12,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User {
-    private String fullName, phoneNumber, address, email;
+    private String fullName, phoneNumber, address, email, id, avatar;
     private ArrayList<Integer> favoriteBookIds = new ArrayList<>();
     private Map<String, Integer> quantityByBookId = new HashMap<>();
+
+    private ArrayList<Order> orderHistory;
 
     public User() {
     }
@@ -24,13 +26,16 @@ public class User {
         this.email = email;
     }
 
-    public User(String fullName, String phoneNumber, String address, String email, ArrayList<Integer> favoriteBookIds, Map<String, Integer> quantityByBookId) {
+    public User(String fullName, String phoneNumber, String address, String email, ArrayList<Integer> favoriteBookIds, String id,String avatar, ArrayList<Order> orderHistory, Map<String, Integer> quantityByBookId) {
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.email = email;
         this.favoriteBookIds = favoriteBookIds;
         this.quantityByBookId = quantityByBookId;
+        this.id = id;
+        this.avatar = avatar;
+        this.orderHistory = orderHistory;
     }
 
     public String getFullName() {
@@ -95,9 +100,11 @@ public class User {
     @Exclude
     public Task<Void> saveToDatabase() {
         firebaseUser = firebaseAuth.getCurrentUser();
+        id = firebaseUser.getUid();
+        avatar = "https://firebasestorage.googleapis.com/v0/b/bookaholic-82677.appspot.com/o/avatar.png?alt=media&token=4254ac57-c606-46d2-a076-2a8770260f3d";
         return FirebaseDatabase.getInstance()
                 .getReference("Users")
-                .child(firebaseUser.getUid())
+                .child(id)
                 .setValue(this);
     }
 
@@ -105,4 +112,30 @@ public class User {
     public boolean likeBookWithId(Integer id) {
         return this.favoriteBookIds.contains(id);
     }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public ArrayList<Order> getOrderHistory() {
+        return orderHistory;
+    }
+
+    public void setOrderHistory(ArrayList<Order> orderHistory) {
+        this.orderHistory = orderHistory;
+    }
+
+    public String getId(){
+        return this.id;
+    }
+
+    public void setId(String id){
+        this.id = id;
+    }
+
+
 }

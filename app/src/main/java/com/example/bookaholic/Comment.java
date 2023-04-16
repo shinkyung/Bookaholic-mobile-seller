@@ -13,6 +13,18 @@ public class Comment {
         this.name = name;
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setAvatar(String avatar){
+        this.avatar = avatar;
+    }
+
+    public void setRate(int rate){
+        this.rate = rate;
+    }
+
     public String getContent() {
         return content;
     }
@@ -25,10 +37,6 @@ public class Comment {
         return rate;
     }
 
-    public void setRate(int rate) {
-        this.rate = rate;
-    }
-
     public String getAvatar() {
         return avatar;
     }
@@ -37,7 +45,4 @@ public class Comment {
         return name;
     }
 
-    public float getRating() {
-        return rate;
-    }
 }

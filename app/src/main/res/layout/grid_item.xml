@@ -5,14 +5,14 @@
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:gravity="center"
+    android:elevation="8dp"
     >
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="108dp"
-        android:layout_height="192dp"
-        android:src="@drawable/ic_launcher_background"
-        android:background="@drawable/border"/>
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:src="@drawable/ic_launcher_background" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textView"

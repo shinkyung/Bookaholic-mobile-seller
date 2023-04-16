@@ -39,7 +39,7 @@ public class ReviewFragment extends Fragment {
         return view;
     }
     public void initComment(View view){
-        ReviewAdapter adapter = new ReviewAdapter(context, comments);
+        ReviewAdapter adapter = new ReviewAdapter(getActivity(), comments);
         commentListView = view.findViewById(R.id.commentListView);
         commentListView.setAdapter(adapter);
     }

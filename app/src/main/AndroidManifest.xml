@@ -19,6 +19,9 @@
         android:theme="@style/Theme.Bookaholic"
         tools:targetApi="31">
         <activity
+            android:name=".orderHistory.OrderDetail"
+            android:exported="false" />
+        <activity
             android:name=".fragment"
             android:exported="false" />
         <activity
@@ -40,6 +43,9 @@
         <activity
             android:name=".details.Detail"
             android:exported="false" />
+        <activity
+            android:name=".orderHistory.OrderHistory"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -47,6 +53,9 @@
 
         <activity
             android:name=".AddBook"
+            android:exported="false" />
+        <activity
+            android:name=".CreateVoucher"
             android:exported="false" />
         <activity
             android:name=".UpdateBook"
@@ -82,7 +91,6 @@
             android:name=".MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -90,4 +98,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

@@ -3,6 +3,7 @@
     <string name="home_english">Home</string>
     <string name="book_image">Book Image</string>
     <string name="book_type">Thể loại:</string>
+    <string name="book_buyer">Đã bán:</string>
     <string name="book_title">example</string>
     <string name="book_author">Tác giả:</string>
     <string name="buy_btn">Buy</string>
@@ -57,6 +58,7 @@
     <string name="removed_remove_from_cart">Đã xoá khỏi giỏ hàng</string>
     <string name="image_empty">Vui lòng chọn ảnh</string>
     <string name="wishlist_title">Danh sách yêu thích</string>
+    <string name="top_5_best_seller">Top 5 Best Seller</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="categories_array">
