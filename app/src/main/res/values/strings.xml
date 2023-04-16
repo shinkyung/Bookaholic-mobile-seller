@@ -71,6 +71,10 @@
         <item>History</item>
         <item>Science</item>
     </string-array>
+    <string-array name="typeVoucher_array">
+        <item>Price</item>
+        <item>Percent</item>
+    </string-array>
 
 
 </resources>
