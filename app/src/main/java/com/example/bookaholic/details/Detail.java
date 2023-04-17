@@ -60,16 +60,12 @@ public class Detail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         loadData();
-        initAddToCartButton();
         initRecommend();
         initBasicInfo();
         initShowButton();
         initComment();
-        initFavorite();
         initBookDetail();
         initCurrentUser();
-        initShoppingCart();
-        initAmountBtn();
         context = this;
         returnBtn = findViewById(R.id.returnBtn);
         int test = getResources().getIdentifier("avatar1", "drawable", getPackageName());
@@ -105,7 +101,6 @@ public class Detail extends AppCompatActivity {
                 }
             });
         }
-        shopping_badge.setNumber(Order.currentOrder.orderSize());
     }
     private void loadData() {
         Intent data = getIntent();
@@ -113,53 +108,6 @@ public class Detail extends AppCompatActivity {
         currentBook = Book.findBookByTitle(bundle.getString("bookName"));
         //Set data to screen
 
-    }
-    public void initFavorite(){
-        ImageView imageViewHeart = findViewById(R.id.image_view_heart);
-        Integer bookID = Book.idOfBookWithName(currentBook.getTitle());
-        if (currentSyncedUser.likeBookWithId(bookID))
-            imageViewHeart.setColorFilter(ContextCompat.getColor(Detail.this, R.color.md_theme_light_onSurfaceVariant), PorterDuff.Mode.SRC_IN);
-        else
-            imageViewHeart.setColorFilter(ContextCompat.getColor(Detail.this,R.color.md_theme_light_onSurfaceVariant), PorterDuff.Mode.SRC_IN);
-
-        imageViewHeart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-
-                    int toastMessage;
-
-                    if (currentSyncedUser.likeBookWithId(bookID)) {
-                        toastMessage = R.string.removed_from_favorites;
-                        currentSyncedUser.unlike(bookID);
-                        imageViewHeart.setColorFilter(ContextCompat.getColor(Detail.this,R.color.md_theme_light_onSurfaceVariant), PorterDuff.Mode.SRC_IN);
-
-                    } else {
-                        toastMessage = R.string.added_to_favorites;
-                        currentSyncedUser.like(bookID);
-                        imageViewHeart.setColorFilter(ContextCompat.getColor(Detail.this,R.color.red), PorterDuff.Mode.SRC_IN);
-                    }
-
-                    OnCompleteListener<Void> onCompleteListener = task -> {
-                        if (task.isSuccessful())
-                            showToast(Detail.this, toastMessage);
-                    };
-
-                    syncCurrentUserFavoriteBooks(onCompleteListener);
-
-//                    updateAddToFavoriteButton();
-
-                } catch (Exception e) {
-                    Log.d(TAG, e.toString());
-                }
-//                if (true){
-//                    imageViewHeart.setColorFilter(ContextCompat.getColor(Detail.this, R.color.black), PorterDuff.Mode.SRC_IN);
-//                }
-//                else {
-//                    imageViewHeart.setColor(ContextCompat.getColor(Detail.this, R.color.red), PorterDuff.Mode.SRC_IN);
-//                }
-            }
-        });
     }
     public void initBasicInfo(){
         titleTxt = findViewById(R.id.titleTxt);
@@ -197,36 +145,6 @@ public class Detail extends AppCompatActivity {
         gridView.setAdapter(adapter);
     }
 
-    public void initAddToCartButton(){
-        addToCartButton = findViewById(R.id.addToCartButton);
-        shopping_badge = findViewById(R.id.shopping_badge);
-
-        addToCartButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                OrderBook orderBook = new OrderBook(currentBook, countQuantity);
-                int toastMessage;
-                try {
-                    if (Order.currentOrder.checkOrderBook(orderBook)){
-                    toastMessage = R.string.added_to_cart;
-                    Order.currentOrder.addExistedOrderBook(orderBook);
-                    showToast(Detail.this, toastMessage);
-                    }
-                else {
-                    Order.currentOrder.addOrderBook(orderBook);
-                    toastMessage = R.string.added_to_cart;
-                    shopping_badge.setNumber(Order.currentOrder.orderSize());
-                    showToast(Detail.this, toastMessage);
-
-                    }
-
-                } catch (Exception e) {
-                    Log.e("AddToCart", e.toString());
-                }
-            }
-        });
-    }
 
     private void toggleTextView(TextView textView) {
         if (textView.getMaxLines() == 4) {
@@ -277,49 +195,7 @@ public class Detail extends AppCompatActivity {
         if (currentUser == null) {
             startActivity(new Intent(Detail.this, SignInActivity.class));
         }
-//        Log.d("Test", currentUser.getDisplayName());
     }
 
-    public void initShoppingCart(){
-        ImageView shoppingBtn = findViewById(R.id.shoppingBtn);
-        shoppingBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Detail.this, OrderHistory.class));
-            }
-        });
 
-//        shoppingBtn.setOnClickListener(v -> {
-//            Review rateDialog = new Review(v.getContext(), currentBook);
-//            rateDialog.getWindow();
-//            rateDialog.setCancelable(false);
-//            rateDialog.show();
-//        });
-    }
-
-    public void initAmountBtn(){
-        addBtn = findViewById(R.id.addBtn);
-        removeBtn = findViewById(R.id.removeBtn);
-        quantityTxt = findViewById(R.id.quantityTxt);
-        quantityTxt.setText(String.valueOf(countQuantity));
-        removeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (countQuantity <= 1){
-                    return;
-                } else {
-                    countQuantity--;
-                    quantityTxt.setText(String.valueOf(countQuantity));
-                }
-            }
-        });
-
-        addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                countQuantity++;
-                quantityTxt.setText(String.valueOf(countQuantity));
-            }
-        });
-    }
 }

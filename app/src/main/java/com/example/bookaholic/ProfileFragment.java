@@ -146,27 +146,6 @@ public class ProfileFragment extends Fragment {
             edtName.setText(currentUser.getFullName());
         }
 
-
-
-        btnUpdateInfo = view.findViewById(R.id.btn_update_infor);
-
-
-        btnUpdateInfo.setOnClickListener(view1 -> {
-
-            if (cur_user == null) {
-//                        Intent signInSignUpIntent = new Intent(MainActivity.this, SignInSignUpActivity.class);
-//                        startActivity(signInSignUpIntent);
-            }
-            else {
-                cur_user.child("address").setValue(edtAddress.getText().toString());
-                cur_user.child("email").setValue(edtEmail.getText().toString());
-                cur_user.child("fullName").setValue(edtName.getText().toString());
-                cur_user.child("phoneNumber").setValue(edtPhone.getText().toString());
-                Toast.makeText(getActivity(), "Đã cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
-            }
-
-        });
-
         buttonSignOut.setOnClickListener(v -> signOut());
         // Inflate the layout for this fragment
         return view;

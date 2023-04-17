@@ -2,6 +2,7 @@ package com.example.bookaholic;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import com.example.bookaholic.details.Book;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.bookaholic.details.Detail;
+import com.example.bookaholic.orderHistory.OrderDetail;
 
 import java.util.ArrayList;
 
@@ -54,6 +57,13 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
         holder.mTextViewPrice.setText(String.valueOf(currentBook.getPrice()));
         holder.mTextViewQuantity.setText(String.valueOf(currentBook.getQuantity()));
         holder.mTextViewSold.setText(String.valueOf(currentBook.getBuyer()));
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(mContext, Detail.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("bookName", currentBook.getTitle());
+            intent.putExtras(bundle);
+            mContext.startActivity(intent);
+        });
         holder.mUpdateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

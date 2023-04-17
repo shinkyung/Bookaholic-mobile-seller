@@ -57,7 +57,7 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/add_image"
                     app:fabCustomSize="80dp"
-                    app:maxImageSize="70dp"/>
+                    app:maxImageSize="70dp" />
             </RelativeLayout>
 
             <LinearLayout
