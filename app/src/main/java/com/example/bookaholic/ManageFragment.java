@@ -1,6 +1,5 @@
 package com.example.bookaholic;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,19 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookaholic.details.Book;
 
-public class WishlistFragment extends Fragment implements UserDataChangedListener, BooksDataChangedListener {
-
-    private final String TAG = "WishlistFragment";
+public class ManageFragment extends Fragment implements UserDataChangedListener, BooksDataChangedListener{
+    private final String TAG = "ManageFragment";
 
     private RecyclerView recyclerView;
-    private BookAdapter adapter;
+    private ManageBookAdapter adapter;
 
-    public WishlistFragment() {
+    public ManageFragment() {
 
     }
 
-    public static WishlistFragment newInstance() {
-        WishlistFragment fragment = new WishlistFragment();
+    public static ManageFragment newInstance() {
+        ManageFragment fragment = new ManageFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -42,21 +40,16 @@ public class WishlistFragment extends Fragment implements UserDataChangedListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_wishlist, container, false);
-        adapter = new BookAdapter(view.getContext(), Book.allBooks);
-        adapter.filterByFavorite();
-        recyclerView = view.findViewById(R.id.recyclerview_wishlist);
+        View view = inflater.inflate(R.layout.manage_view, container, false);
+        adapter = new ManageBookAdapter(view.getContext(), Book.allBooks);
+        recyclerView = view.findViewById(R.id.manageLayout);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return view;
     }
 
     public void notifyAdapter() {
-        try {
-            if (adapter != null) adapter.filterByFavorite();
-        } catch (Exception e) {
-            Log.d(TAG, e.toString());
-        }
+        adapter.notifyDataSetChanged();
     }
     @Override
     public void updateUserRelatedViews() {

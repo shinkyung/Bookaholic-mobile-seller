@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton buttonHome;
     private ImageButton buttonFavorite;
     private ImageButton buttonProfile;
-    private Fragment fragmentMap, fragmentProfile;
+    private Fragment  fragmentProfile;
     private ProductListFragment fragmentHome;
-    private WishlistFragment fragmentWishlist;
+    private ManageFragment fragmentManage;
 
     private UserDataChangedListener userDataChangedListener;
     private BooksDataChangedListener booksDataChangedListener;
@@ -58,10 +58,9 @@ public class MainActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        fragmentWishlist = new WishlistFragment();
-        fragmentMap = new MapFragment();
         fragmentHome = new ProductListFragment();
         fragmentProfile  = new ProfileFragment();
+        fragmentManage = new ManageFragment();
         buttonHome = findViewById(R.id.bottomNavBarButtonHome);
         buttonFavorite = findViewById(R.id.bottomNavBarButtonFavorite);
         buttonProfile = findViewById(R.id.bottomNavBarButtonProfile);
@@ -95,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
             } else if (viewId == R.id.bottomNavBarButtonFavorite) {
                 Log.d(TAG, "Favorite button clicked!");
                 buttonFavorite.setImageResource(R.drawable.favorite_selected);
-                userDataChangedListener = fragmentWishlist;
-                booksDataChangedListener = fragmentWishlist;
-                switchFragment(R.id.fragmentcontainerMainActivity, fragmentWishlist);
+                userDataChangedListener = fragmentManage;
+                booksDataChangedListener = fragmentManage;
+                switchFragment(R.id.fragmentcontainerMainActivity, fragmentManage);
             } else if (viewId == R.id.bottomNavBarButtonProfile) {
                 Log.d(TAG, "Profile button clicked!");
                 buttonProfile.setImageResource(R.drawable.profile_selected);
@@ -130,8 +129,6 @@ public class MainActivity extends AppCompatActivity {
                 initBooksDatabaseReference(booksDatabaseListener);
             }
         }
-        shopping_badge = findViewById(R.id.shopping_badge);
-        shopping_badge.setNumber(Order.currentOrder.orderSize());
     }
 
     private final ValueEventListener currentUserDatabaseListener = new ValueEventListener() {

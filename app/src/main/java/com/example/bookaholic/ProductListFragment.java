@@ -8,10 +8,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,16 +34,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookaholic.details.Book;
-import com.nex3z.notificationbadge.NotificationBadge;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 public class ProductListFragment extends Fragment implements UserDataChangedListener, BooksDataChangedListener{
 
     private TextView usernameView;
-    private ImageButton buttonGoToCart, buttonFilter;
+    private ImageButton  buttonFilter;
     private SearchView searchView;
     private RecyclerView recyclerView;
     ProgressBar progressBar;
@@ -64,7 +59,6 @@ public class ProductListFragment extends Fragment implements UserDataChangedList
     Integer minPrice = null, maxPrice = null;
 
     private RecyclerView bestSellerRecyclerView;
-    private BestSellerAdapter bestSellerAdapter;
     public ProductListFragment() {
 
     }
@@ -103,11 +97,6 @@ public class ProductListFragment extends Fragment implements UserDataChangedList
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        bestSellerAdapter = new BestSellerAdapter(view.getContext(), Book.allBooks);
-        bestSellerAdapter.filterByBuyer();
-        bestSellerRecyclerView = view.findViewById(R.id.bestSellerRecyclerView);
-        bestSellerRecyclerView.setAdapter(bestSellerAdapter);
-
 
         progressBar = view.findViewById(R.id.progressbar_home_fragment);
         updateProgressBar();
@@ -115,9 +104,6 @@ public class ProductListFragment extends Fragment implements UserDataChangedList
         searchView = view.findViewById(R.id.searchview_home);
         searchView.setOnQueryTextListener(searchQueryTextListener);
 
-        buttonGoToCart = view.findViewById(R.id.imagebutton_home_mycart);
-//        updateCartButton();
-        buttonGoToCart.setOnClickListener(v -> startCartActivity());
 
         filterContainer = view.findViewById(R.id.filters_container);
 
@@ -264,10 +250,7 @@ public class ProductListFragment extends Fragment implements UserDataChangedList
     @SuppressLint("NotifyDataSetChanged")
     public void notifyAdapter() {
         adapter.setBooks(Book.allBooks);
-        bestSellerAdapter.setBooks(Book.allBooks);
-        bestSellerAdapter.filterByBuyer();
         adapter.notifyDataSetChanged();
-        bestSellerAdapter.notifyDataSetChanged();
     }
 
     public void updateProgressBar() {

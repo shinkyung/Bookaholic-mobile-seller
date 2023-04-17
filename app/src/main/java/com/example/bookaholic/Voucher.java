@@ -1,10 +1,17 @@
 package com.example.bookaholic;
 
+import com.example.bookaholic.details.Book;
+import com.google.firebase.database.Exclude;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Voucher implements Serializable {
     private String id, nameVoucher, idVoucher, typeVoucher, startVoucher, endVoucher;
     private int discountVoucher, minimumVoucher, quantityVoucher, limitVoucher;
+
+    @Exclude
+    public static ArrayList<Voucher> allVouchers = new ArrayList<>();
 
     public Voucher(){}
     public Voucher(String nameVoucher, String idVoucher, String typeVoucher, String startVoucher, String endVoucher,
@@ -18,6 +25,15 @@ public class Voucher implements Serializable {
         this.minimumVoucher = minimumVoucher;
         this.quantityVoucher = quantityVoucher;
         this.limitVoucher = limitVoucher;
+    }
+
+    public static Voucher findVoucherByName(String title) {
+        for (int i = 0; i < allVouchers.size(); i++){
+            if (allVouchers.get(i).getNameVoucher().contains(title)){
+                return allVouchers.get(i);
+            }
+        }
+        return null;
     }
 
     public void setId(String id){

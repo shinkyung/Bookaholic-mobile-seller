@@ -28,9 +28,6 @@
             android:name=".ProfileFragment"
             android:exported="false" />
         <activity
-            android:name=".ProfileAcitivity"
-            android:exported="false" />
-        <activity
             android:name=".ManageBook"
             android:exported="false" />
         <activity

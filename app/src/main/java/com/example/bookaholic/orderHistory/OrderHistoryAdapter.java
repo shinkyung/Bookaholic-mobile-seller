@@ -25,7 +25,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
     private Context context;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView dateTxt, statusTxt, addressTxt, totalTxt, quantityTxt;
+        public TextView dateTxt, statusTxt, addressTxt, totalTxt, customerTxt;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -33,7 +33,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
             statusTxt = itemView.findViewById(R.id.statusTxt);
             addressTxt = itemView.findViewById(R.id.addressTxt);
             totalTxt = itemView.findViewById(R.id.totalTxt);
-            quantityTxt = itemView.findViewById(R.id.quantityTxt);
+            customerTxt = itemView.findViewById(R.id.customerTxt);
         }
     }
 
@@ -57,7 +57,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         holder.statusTxt.setText(order.getOrderStatus());
         holder.addressTxt.setText(order.getAddress());
         holder.totalTxt.setText(order.getTotalPrice().toString());
-        holder.quantityTxt.setText(order.quantity().toString());
+        holder.customerTxt.setText(order.quantity().toString());
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, OrderDetail.class);
             Bundle bundle = new Bundle();
@@ -73,16 +73,15 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
     }
 
     public static class MyData {
-        private String createdAt, address, orderStatus;
+        private String createdAt, address, orderStatus, customer;
         private float totalPrice;
-        private Integer quantity;
 
-        public MyData(String createdAt, String address, String orderStatus, float totalPrice, Integer quantity) {
+        public MyData(String createdAt, String address, String orderStatus, float totalPrice, String customer) {
             this.createdAt = createdAt;
             this.address = address;
             this.orderStatus = orderStatus;
             this.totalPrice = totalPrice;
-            this.quantity = quantity;
+            this.customer= customer;
         }
 
         public String getCreatedAt() {
@@ -97,16 +96,13 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
             return orderStatus;
         }
 
+        public String getCustomer() {
+            return customer;
+        }
+
         public float getTotalPrice() {
             return totalPrice;
         }
 
-        public Integer getQuantity() {
-            return quantity;
-        }
-
-        public void setQuantity(Integer quantity) {
-            this.quantity = quantity;
-        }
     }
 }

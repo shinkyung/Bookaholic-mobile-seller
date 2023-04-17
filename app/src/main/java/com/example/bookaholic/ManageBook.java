@@ -16,14 +16,6 @@ public class ManageBook extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_view);
-        returnBtn = findViewById(R.id.returnManage);
-
-        returnBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    onBackPressed();
-            }
-        });
         initManageBook();
     }
 
