@@ -8,7 +8,7 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchview_home"
-        android:layout_width="280dp"
+        android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -19,18 +19,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </androidx.appcompat.widget.SearchView>
-
-
-    <ImageView
-        android:id="@+id/img_mic"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/ic_baseline_mic"
-        app:layout_constraintBottom_toBottomOf="@id/searchview_home"
-        app:layout_constraintEnd_toEndOf="@id/searchview_home"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="@id/searchview_home"
-        app:layout_constraintTop_toTopOf="@id/searchview_home" />
 
     <ImageButton
         android:id="@+id/button_filter"

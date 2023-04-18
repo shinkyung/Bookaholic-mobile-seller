@@ -1,8 +1,10 @@
 package com.example.bookaholic;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +39,7 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
 
     public ManageBookAdapter(Context context, ArrayList<Book> books) {
         mContext = context;
-        mBooks = books;
+        this.setBooks(books);
     }
 
     @Override
@@ -144,6 +146,49 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
                     }
                 }
             });
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void filterByOptions(ArrayList<String> selectedType, Integer minPrice, Integer maxPrice) {
+        this.mBooks.clear();
+        for (Book book : Book.allBooks) {
+            boolean matchType = false;
+            String[] types = book.getCategory().toLowerCase().replaceAll(" ", "").split(",");
+
+            for (String type : types) {
+                if (selectedType.contains(type)) {
+                    matchType = true;
+                    break;
+                }
+            }
+
+            if ((selectedType.isEmpty() || matchType)
+                    && book.hasPriceInRange(minPrice, maxPrice)) {
+                this.mBooks.add(book.deepCopy());
+            }
+        }
+        notifyDataSetChanged();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void filterByName(String queryText) {
+        this.mBooks.clear();
+        if (TextUtils.isEmpty(queryText))
+            this.setBooks(Book.allBooks);
+        else {
+            for (Book book : Book.allBooks) {
+                if (book.hasNameSimilarTo(queryText))
+                    this.mBooks.add(book.deepCopy());
+            }
+        }
+        notifyDataSetChanged();
+    }
+
+    public void setBooks(ArrayList<Book> books) {
+        this.mBooks = new ArrayList<>();
+        for (Book book : books) {
+            this.mBooks.add(book.deepCopy());
         }
     }
 }

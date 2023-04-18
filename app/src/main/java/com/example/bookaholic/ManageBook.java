@@ -21,7 +21,7 @@ public class ManageBook extends AppCompatActivity {
 
     public void initManageBook(){
         ManageBookAdapter adapter = new ManageBookAdapter(ManageBook.this, Book.allBooks);
-        recyclerView = findViewById(R.id.manageLayout);
+        recyclerView = findViewById(R.id.recyclerview_manage);
         recyclerView.setAdapter(adapter);
     }
 }
