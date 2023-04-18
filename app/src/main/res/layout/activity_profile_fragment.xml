@@ -169,7 +169,7 @@
                 android:id="@+id/edt_address"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="10dp"
                 android:fontFamily="sans-serif-light"
                 android:hint="Chưa cập nhật"
                 android:textAlignment="textEnd"
@@ -178,8 +178,56 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/edt_phone" />
 
+            <Button
+                android:id="@+id/btn_statistic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="10dp"
+                android:text="Thống kê"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_address"/>
 
+            <Button
+                android:id="@+id/btn_create_voucher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="10dp"
+                android:text="Tạo voucher"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_statistic" />
 
+            <Button
+                android:id="@+id/btn_add_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="10dp"
+                android:text="Thêm sách"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_create_voucher" />
+            <Button
+                android:id="@+id/btn_update_infor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="10dp"
+                android:text="Cập nhật thông tin"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_add_book" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
