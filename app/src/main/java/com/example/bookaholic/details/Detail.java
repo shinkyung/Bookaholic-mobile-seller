@@ -1,5 +1,6 @@
 package com.example.bookaholic.details;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 public class Detail extends AppCompatActivity {
     private ViewGroup imageListView;
     private ImageView imageSelected, returnBtn;
-    private TextView descriptionTxt, titleTxt, priceTxt, quantityTxt;
+    private TextView descriptionTxt, titleTxt, priceTxt, quantityTxt, contentDetail;
     private RatingBar ratingBar;
     private ImageView addToCartButton;
     private Button addBtn, removeBtn;
@@ -53,6 +54,9 @@ public class Detail extends AppCompatActivity {
         initBookDetail();
         initCurrentUser();
         context = this;
+
+        contentDetail = findViewById(R.id.contentTxt);
+        contentDetail.setText(currentBook.getTitle());
         returnBtn = findViewById(R.id.returnBtn);
         int test = getResources().getIdentifier("avatar1", "drawable", getPackageName());
         System.out.println(test);

@@ -16,7 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:layout_gravity="center"
             android:text="Incomplete"
+            android:background="@color/gray"
             android:textSize="28sp"
             android:textStyle="bold"
             android:gravity="center_horizontal"/>
@@ -33,6 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="Complete"
+            android:background="@color/gray"
+            android:layout_gravity="center"
             android:textSize="28sp"
             android:textStyle="bold"
             android:gravity="center_horizontal"/>

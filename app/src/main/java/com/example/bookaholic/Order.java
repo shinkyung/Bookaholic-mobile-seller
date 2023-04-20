@@ -1,8 +1,12 @@
 package com.example.bookaholic;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 public class Order {
     public static Order currentOrder = new Order();
@@ -30,7 +34,7 @@ public class Order {
 
     }
 
-    public Order(ArrayList<OrderBook> orderBooks, int id,String address, double totalPrice, String orderStatus, String createdAt, String orderOwner) {
+    public Order(ArrayList<OrderBook> orderBooks, int id ,String address, double totalPrice, String orderStatus, String createdAt, String orderOwner) {
         this.orderBooks = orderBooks;
         this.address = address;
         this.totalPrice = totalPrice;
@@ -59,6 +63,12 @@ public class Order {
 
     public Double getTotalPrice() {
         return totalPrice;
+    }
+
+    public String displayTotal() {
+        String str = NumberFormat.getNumberInstance(Locale.US).format(totalPrice);
+        str += " đ";
+        return str;
     }
 
     public void setTotalPrice(double totalPrice) {
