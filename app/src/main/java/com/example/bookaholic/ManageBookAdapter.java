@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.bookaholic.details.Detail;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.ViewHolder> {
 
@@ -55,7 +57,7 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
                 .load(currentBook.getImages().get(0))
                 .into(holder.mImageView);
         holder.mTextViewTitle.setText(currentBook.getTitle());
-        holder.mTextViewPrice.setText(String.valueOf(currentBook.getPrice()));
+        holder.mTextViewPrice.setText(displayPrice(currentBook.getPrice()));
         holder.mTextViewQuantity.setText(String.valueOf(currentBook.getQuantity()));
         holder.mTextViewSold.setText(String.valueOf(currentBook.getBuyer()));
         holder.itemView.setOnClickListener(view -> {
@@ -86,6 +88,11 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
         });
     }
 
+    public String displayPrice(int price) {
+        String str = NumberFormat.getNumberInstance(Locale.US).format(price);
+        str += " đ";
+        return str;
+    }
     @Override
     public int getItemCount() {
         return mBooks.size();

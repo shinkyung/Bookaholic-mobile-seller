@@ -41,7 +41,6 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
             super(itemView);
             dateTxt = itemView.findViewById(R.id.dateTxt);
             statusTxt = itemView.findViewById(R.id.statusTxt);
-            addressTxt = itemView.findViewById(R.id.addressTxt);
             totalTxt = itemView.findViewById(R.id.totalTxt);
             customerTxt = itemView.findViewById(R.id.customerTxt);
         }
@@ -64,8 +63,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         Order order = mDataList.get(position);
         holder.dateTxt.setText(order.getCreatedAt());
         holder.statusTxt.setText(order.getOrderStatus());
-        holder.addressTxt.setText(order.getAddress());
-        holder.totalTxt.setText(order.getTotalPrice().toString());
+        holder.totalTxt.setText(order.displayTotal());
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference usersRef = database.getReference("Users").child(order.getOrderOwner());
