@@ -46,7 +46,7 @@ public class ProfileFragment extends Fragment {
 
     private ImageView imgviewTakeCam, imgviewBack;
     private EditText edtPhone, edtName, edtEmail, edtAddress;
-    private Button btnUpdateInfo, addBook, createVoucher;
+    private Button btnUpdateInfo, addBook, createVoucher, btn_statistic;
     private ImageButton buttonSignOut;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -140,14 +140,19 @@ public class ProfileFragment extends Fragment {
         buttonSignOut = view.findViewById(R.id.button_profile_logout);
         addBook = view.findViewById(R.id.btn_add_book);
         createVoucher = view.findViewById(R.id.btn_create_voucher);
-
+        btn_statistic = view.findViewById(R.id.btn_statistic);
         if(currentUser!=null){
             edtAddress.setText(currentUser.getAddress());
             edtPhone.setText(currentUser.getPhoneNumber());
             edtEmail.setText(currentUser.getEmail());
             edtName.setText(currentUser.getFullName());
         }
-
+        btn_statistic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), Statistic.class));
+            }
+        });
         addBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
