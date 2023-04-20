@@ -65,7 +65,6 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         Order order = mDataList.get(position);
         holder.dateTxt.setText(order.getCreatedAt());
         holder.statusTxt.setText(order.getOrderStatus());
-        holder.addressTxt.setText(order.getAddress());
         holder.totalTxt.setText(NumberFormat.getNumberInstance(Locale.US).format(order.getTotalPrice()) + " đ");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();

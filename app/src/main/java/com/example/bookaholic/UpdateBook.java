@@ -113,6 +113,7 @@ public class UpdateBook extends AppCompatActivity {
         binding.descriptionBook.setText(selectedBook.getDescription());
         binding.quantityBook.setText(selectedBook.getQuantity().toString());
         binding.publicationDateBook.setText(selectedBook.getPublicationDate());
+        publicationDate = selectedBook.getPublicationDate();
         binding.publisherBook.setText(selectedBook.getPublisher());
         binding.sizeBook.setText(selectedBook.getSize());
         binding.numberOfPagesBook.setText(selectedBook.getNumberOfPages().toString());
@@ -308,14 +309,14 @@ public class UpdateBook extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(getApplicationContext(), "Successful Saved", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(UpdateBook.this, ManageBook.class));
+                        startActivity(new Intent(UpdateBook.this, MainActivity.class));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(UpdateBook.this, ManageBook.class));
+                        startActivity(new Intent(UpdateBook.this, MainActivity.class));
                     }
                 });
     }

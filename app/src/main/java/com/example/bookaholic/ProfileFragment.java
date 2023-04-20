@@ -26,6 +26,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -46,7 +47,8 @@ public class ProfileFragment extends Fragment {
 
     private ImageView imgviewTakeCam, imgviewBack;
     private EditText edtPhone, edtName, edtEmail, edtAddress;
-    private Button btnUpdateInfo, addBook, createVoucher;
+    private Button btnUpdateInfo;
+    private TextView addBook, createVoucher, manageVoucher, manageUser, statistic;
     private ImageButton buttonSignOut;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -132,21 +134,21 @@ public class ProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.activity_profile_fragment, container, false);
 
-        imgviewBack = view.findViewById(R.id.imgview_back);
-        edtPhone = view.findViewById(R.id.edt_phone);
-        edtEmail = view.findViewById(R.id.edt_email);
-        edtAddress = view.findViewById(R.id.edt_address);
-        edtName = view.findViewById(R.id.edt_name);
+//        edtAddress = view.findViewById(R.id.edt_address);
+//        edtName = view.findViewById(R.id.edt_name);
         buttonSignOut = view.findViewById(R.id.button_profile_logout);
-        addBook = view.findViewById(R.id.btn_add_book);
-        createVoucher = view.findViewById(R.id.btn_create_voucher);
+        addBook = view.findViewById(R.id.addBook);
+        createVoucher = view.findViewById(R.id.createVoucher);
+        manageVoucher = view.findViewById(R.id.manageVoucher);
+        manageUser = view.findViewById(R.id.manageUser);
+        statistic = view.findViewById(R.id.statistics);
 
-        if(currentUser!=null){
-            edtAddress.setText(currentUser.getAddress());
-            edtPhone.setText(currentUser.getPhoneNumber());
-            edtEmail.setText(currentUser.getEmail());
-            edtName.setText(currentUser.getFullName());
-        }
+//        if(currentUser!=null){
+//            edtAddress.setText(currentUser.getAddress());
+//            edtPhone.setText(currentUser.getPhoneNumber());
+//            edtEmail.setText(currentUser.getEmail());
+//            edtName.setText(currentUser.getFullName());
+//        }
 
         addBook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,23 +164,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        btnUpdateInfo = view.findViewById(R.id.btn_update_infor);
 
-        btnUpdateInfo.setOnClickListener(view1 -> {
-
-            if (cur_user == null) {
-//                        Intent signInSignUpIntent = new Intent(MainActivity.this, SignInSignUpActivity.class);
-//                        startActivity(signInSignUpIntent);
-            }
-            else {
-                cur_user.child("address").setValue(edtAddress.getText().toString());
-                cur_user.child("email").setValue(edtEmail.getText().toString());
-                cur_user.child("fullName").setValue(edtName.getText().toString());
-                cur_user.child("phoneNumber").setValue(edtPhone.getText().toString());
-                Toast.makeText(getActivity(), "Đã cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
-            }
-
-        });
 
         buttonSignOut.setOnClickListener(v -> signOut());
         // Inflate the layout for this fragment

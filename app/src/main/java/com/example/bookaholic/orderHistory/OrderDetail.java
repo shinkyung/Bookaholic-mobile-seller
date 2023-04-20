@@ -7,17 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import static com.example.bookaholic.MainActivity.currentSyncedUser;
-
 import com.example.bookaholic.Order;
 import com.example.bookaholic.OrderBook;
 import com.example.bookaholic.R;
-import com.example.bookaholic.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -91,7 +87,7 @@ public class OrderDetail extends AppCompatActivity {
 
 
         confirmButton.setOnClickListener(view -> {
-            statusRef.setValue("Processing");
+            statusRef.setValue("Complete");
         });
     }
 
