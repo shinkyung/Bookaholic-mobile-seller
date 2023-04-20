@@ -25,7 +25,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapter.ViewHolder> {
 
@@ -65,7 +67,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         holder.dateTxt.setText(order.getCreatedAt());
         holder.statusTxt.setText(order.getOrderStatus());
         holder.addressTxt.setText(order.getAddress());
-        holder.totalTxt.setText(order.getTotalPrice().toString());
+        holder.totalTxt.setText(NumberFormat.getNumberInstance(Locale.US).format(order.getTotalPrice()) + " đ");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference usersRef = database.getReference("Users").child(order.getOrderOwner());

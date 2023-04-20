@@ -14,9 +14,11 @@ import com.example.bookaholic.OrderBook;
 import com.example.bookaholic.R;
 import com.example.bookaholic.details.Book;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
-        public class OrderDetailAdapter extends RecyclerView.Adapter<com.example.bookaholic.orderHistory.OrderDetailAdapter.ViewHolder> {
+public class OrderDetailAdapter extends RecyclerView.Adapter<com.example.bookaholic.orderHistory.OrderDetailAdapter.ViewHolder> {
             private ArrayList<OrderBook> mDataList;
             private Context context;
 
@@ -56,7 +58,8 @@ import java.util.ArrayList;
 
         holder.titleTxt.setText(book.getTitle());
         holder.quantityTxt.setText(String.valueOf(orderBook.getQuantity()));
-        holder.priceTxt.setText(String.valueOf(book.getPrice() * orderBook.getQuantity()));
+        holder.priceTxt.setText(NumberFormat.getNumberInstance(Locale.US).format(book.getPrice() * orderBook.getQuantity()) + " đ");
+
     }
 
     @Override
