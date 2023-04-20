@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import static com.example.bookaholic.MainActivity.currentSyncedUser;
@@ -33,7 +34,8 @@ public class OrderDetail extends AppCompatActivity {
     ArrayList<OrderBook> orders;
     RecyclerView orderDetailRV;
     OnOrderDataLoadedListener listener;
-
+    String orderOwner, orderId;
+    Button confirmButton, denyButton;
     private ImageView returnBtn;
 
     @SuppressLint("MissingInflatedId")
@@ -49,14 +51,15 @@ public class OrderDetail extends AppCompatActivity {
             }
         });
         loadData(listener);
-
+        initConfirmButton();
+        initDenyButton();
     }
 
     private void loadData(OnOrderDataLoadedListener listener) {
         Intent data = getIntent();
         Bundle bundle = data.getExtras();
-        String orderOwner = bundle.getString("orderOwner");
-        String orderId = bundle.getString("orderID");
+        orderOwner = bundle.getString("orderOwner");
+        orderId = bundle.getString("orderID");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference usersRef = database.getReference("Users").child(orderOwner).child("orderHistory").child(orderId);
 
@@ -78,6 +81,28 @@ public class OrderDetail extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });
+    }
+
+    public void initConfirmButton(){
+        confirmButton = findViewById(R.id.confirmButton);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference statusRef = database.getReference("Users").child(orderOwner).child("orderHistory").child(orderId).child("orderStatus");
+
+
+        confirmButton.setOnClickListener(view -> {
+            statusRef.setValue("Processing");
+        });
+    }
+
+    public void initDenyButton(){
+        denyButton = findViewById(R.id.denyButton);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference statusRef = database.getReference("Users").child(orderOwner).child("orderHistory").child(orderId).child("orderStatus");
+
+
+        denyButton.setOnClickListener(view -> {
+            statusRef.setValue("Denied");
         });
     }
 }

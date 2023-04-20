@@ -58,13 +58,7 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<com.example.bookaho
 
         holder.titleTxt.setText(book.getTitle());
         holder.quantityTxt.setText(String.valueOf(orderBook.getQuantity()));
-        holder.priceTxt.setText(displayPrice(book.getPrice() * orderBook.getQuantity()));
-    }
-
-    public String displayPrice(double price) {
-        String str = NumberFormat.getNumberInstance(Locale.US).format(price);
-        str += " đ";
-        return str;
+        holder.priceTxt.setText(NumberFormat.getNumberInstance(Locale.US).format(book.getPrice() * orderBook.getQuantity()) + " đ");
     }
 
     @Override
