@@ -46,7 +46,7 @@ public class ProfileFragment extends Fragment {
 
     private ImageView imgviewTakeCam, imgviewBack;
     private EditText edtPhone, edtName, edtEmail, edtAddress;
-    private Button btnUpdateInfo;
+    private Button btnUpdateInfo, addBook, createVoucher;
     private ImageButton buttonSignOut;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -138,6 +138,8 @@ public class ProfileFragment extends Fragment {
         edtAddress = view.findViewById(R.id.edt_address);
         edtName = view.findViewById(R.id.edt_name);
         buttonSignOut = view.findViewById(R.id.button_profile_logout);
+        addBook = view.findViewById(R.id.btn_add_book);
+        createVoucher = view.findViewById(R.id.btn_create_voucher);
 
         if(currentUser!=null){
             edtAddress.setText(currentUser.getAddress());
@@ -145,6 +147,20 @@ public class ProfileFragment extends Fragment {
             edtEmail.setText(currentUser.getEmail());
             edtName.setText(currentUser.getFullName());
         }
+
+        addBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity() , AddBook.class));
+            }
+        });
+
+        createVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), CreateVoucher.class));
+            }
+        });
 
         btnUpdateInfo = view.findViewById(R.id.btn_update_infor);
 

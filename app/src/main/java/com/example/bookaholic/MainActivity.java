@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton buttonFavorite;
     private ImageButton buttonProfile;
     private Fragment  fragmentProfile;
-    private ProductListFragment fragmentHome;
+    private OrderHistory fragmentHome;
     private ManageFragment fragmentManage;
 
     private UserDataChangedListener userDataChangedListener;
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        fragmentHome = new ProductListFragment();
+        fragmentHome = new OrderHistory(MainActivity.this);
         fragmentProfile  = new ProfileFragment();
         fragmentManage = new ManageFragment();
         buttonHome = findViewById(R.id.bottomNavBarButtonHome);

@@ -29,7 +29,7 @@ public class RemoveBook extends AppCompatActivity {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.activity_remove_book);
 
-        selectedBook = (Book) getIntent().getSerializableExtra("selectedBook");
+        selectedBook = Book.findBookByTitle(getIntent().getExtras().getString("selectedBook"));
 
         Button btnNo = dialog.findViewById(R.id.btn_no);
         Button btnYes = dialog.findViewById(R.id.btn_yes);

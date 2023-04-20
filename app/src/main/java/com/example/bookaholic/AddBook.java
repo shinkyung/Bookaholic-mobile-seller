@@ -204,7 +204,13 @@ public class AddBook extends AppCompatActivity {
         binding.cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Cancel", Toast.LENGTH_SHORT).show();
+                onBackPressed();
+            }
+        });
+
+        binding.returnManage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 onBackPressed();
             }
         });

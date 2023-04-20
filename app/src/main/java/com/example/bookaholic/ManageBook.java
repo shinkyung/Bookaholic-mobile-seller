@@ -10,7 +10,6 @@ import com.example.bookaholic.details.Book;
 
 public class ManageBook extends AppCompatActivity {
     RecyclerView recyclerView;
-    private ImageView returnBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

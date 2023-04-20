@@ -12,6 +12,11 @@ public class Order {
     private String orderStatus;
     private String createdAt;
 
+    private int id;
+
+    private String orderOwner;
+
+
     public Order() {
         this.orderBooks = new ArrayList<>();
         this.address = "";
@@ -20,14 +25,19 @@ public class Order {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         createdAt = dateFormat.format(now);
+        orderOwner = "";
+        id = 0;
+
     }
 
-    public Order(ArrayList<OrderBook> orderBooks, String address, double totalPrice, String orderStatus, String createdAt) {
+    public Order(ArrayList<OrderBook> orderBooks, int id,String address, double totalPrice, String orderStatus, String createdAt, String orderOwner) {
         this.orderBooks = orderBooks;
         this.address = address;
         this.totalPrice = totalPrice;
         this.orderStatus = orderStatus;
         this.createdAt = createdAt;
+        this.orderOwner = orderOwner;
+        this.id = id;
     }
 
     public ArrayList<OrderBook> getOrderBooks() {
@@ -94,5 +104,21 @@ public class Order {
 
     public Integer quantity() {
         return orderBooks.size();
+    }
+
+    public String getOrderOwner() {
+        return orderOwner;
+    }
+
+    public void setOrderOwner(String orderOwner) {
+        this.orderOwner = orderOwner;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

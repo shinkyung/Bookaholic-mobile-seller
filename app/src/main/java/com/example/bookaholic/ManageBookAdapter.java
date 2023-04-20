@@ -16,8 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.bookaholic.details.Detail;
-import com.example.bookaholic.orderHistory.OrderDetail;
-import com.example.bookaholic.orderHistory.OrderHistory;
 
 import java.util.ArrayList;
 
@@ -70,7 +68,7 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
         holder.mUpdateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, OrderHistory.class);
+                Intent intent = new Intent(mContext, UpdateBook.class);
                 intent.putExtra("selectedBook", currentBook.getTitle());
                 mContext.startActivity(intent);
             }

@@ -1,16 +1,9 @@
 package com.example.bookaholic.details;
 
-import static android.content.ContentValues.TAG;
-import static com.example.bookaholic.FirebaseHelper.syncCurrentUserFavoriteBooks;
-import static com.example.bookaholic.MainActivity.currentSyncedUser;
-import static com.example.bookaholic.Tools.showToast;
-
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -19,20 +12,13 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.bookaholic.AddBook;
 import com.example.bookaholic.Comment;
-import com.example.bookaholic.CreateVoucher;
-import com.example.bookaholic.Order;
-import com.example.bookaholic.OrderBook;
 import com.example.bookaholic.R;
 import com.example.bookaholic.SignInActivity;
-import com.example.bookaholic.orderHistory.OrderHistory;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.nex3z.notificationbadge.NotificationBadge;

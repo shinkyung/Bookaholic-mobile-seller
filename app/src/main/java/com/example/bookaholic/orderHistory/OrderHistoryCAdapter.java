@@ -6,15 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.bookaholic.Comment;
 import com.example.bookaholic.Order;
 import com.example.bookaholic.OrderBook;
 import com.example.bookaholic.R;
@@ -27,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapter.ViewHolder> {
+public class OrderHistoryCAdapter extends RecyclerView.Adapter<OrderHistoryCAdapter.ViewHolder> {
 
     private ArrayList<Order> mDataList;
     private Context context;
@@ -47,7 +43,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         }
     }
 
-    public OrderHistoryAdapter(Context context, ArrayList<Order> dataList) {
+    public OrderHistoryCAdapter(Context context, ArrayList<Order> dataList) {
         this.mDataList = dataList;
         this.context = context;
     }
@@ -56,11 +52,11 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.order_history_item, parent, false);
-        return new OrderHistoryAdapter.ViewHolder(itemView);
+        return new OrderHistoryCAdapter.ViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(OrderHistoryAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(OrderHistoryCAdapter.ViewHolder holder, int position) {
         Order order = mDataList.get(position);
         holder.dateTxt.setText(order.getCreatedAt());
         holder.statusTxt.setText(order.getOrderStatus());

@@ -1,6 +1,11 @@
 package com.example.bookaholic;
+import android.os.Parcelable;
+
 import com.example.bookaholic.details.Book;
-public class OrderBook {
+
+import java.io.Serializable;
+
+public class OrderBook implements Serializable {
     public Book book;
     public int quantity;
 
