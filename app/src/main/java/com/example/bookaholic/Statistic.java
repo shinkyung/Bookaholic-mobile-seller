@@ -60,21 +60,26 @@ public class Statistic extends AppCompatActivity {
                             continue;
                         }
                         for(Order order1: user.getOrderHistory()){
-                            if(order1.getOrderStatus().contains("Incomplete")){
-                                continue;
-                            }
-                            else{
+                            if(order1.getOrderStatus().contains("Complete")){
                                 orderC.add(order1);
                             }
                         }
                     }
                     LineChart lineChart = findViewById(R.id.lineChart);
-                    System.out.println(orderC.size() + "Hello world");
                     ArrayList<Entry> entries = new ArrayList<>();
 
-                    for (int i = 0; i < orderC.size(); i++) {
-                        float value = orderC.get(i).getTotalPrice().floatValue();
+                    for (int i = 0; orderC.size() != 0;) {
+                        float value = 0f;
                         String dateStr = orderC.get(i).getCreatedAt();
+                        for (int j = i; j < orderC.size();j++){
+                            if (dateStr.equalsIgnoreCase(orderC.get(j).getCreatedAt())){
+                                value =value + orderC.get(j).getTotalPrice().floatValue();
+                                System.out.println(value);
+                                orderC.remove(j);
+                                j--;
+                            }
+                            System.out.println(value);
+                        }
                         Date date = null;
                         try {
                             date = new SimpleDateFormat("dd/MM/yyyy").parse(dateStr);
@@ -87,7 +92,8 @@ public class Statistic extends AppCompatActivity {
 
                     LineDataSet dataSet = new LineDataSet(entries, "Label");
                     dataSet.setColor(Color.RED);
-                    dataSet.setLineWidth(2f);
+                    dataSet.setLabel("Total Value");
+                    dataSet.setLineWidth(3f);
 
                     LineData lineData = new LineData(dataSet);
                     lineChart.setData(lineData);
@@ -103,6 +109,8 @@ public class Statistic extends AppCompatActivity {
                         }
                     });
                     xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                    xAxis.setGranularity(24 * 60 * 60 * 1000);
+                    xAxis.setDrawLabels(true);
                     lineChart.invalidate();
                 }
             }

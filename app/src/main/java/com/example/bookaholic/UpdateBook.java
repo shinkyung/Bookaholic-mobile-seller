@@ -303,6 +303,9 @@ public class UpdateBook extends AppCompatActivity {
                 , publicationDate, publisher, size, numberOfPages, typeOfCover, images, selectedBook.getBuyer(), selectedBook.getRecentlyDate(), selectedBook.displayablePrice(), selectedBook.getRateAvg());
          // Xác định ID của selectedBook
         Map<String, Object> updateValues = new HashMap<>();
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        DatabaseReference myRef =db.getReference("Books").child(bookId);
+//        myRef.setValue(book);
         updateValues.put(bookId, book.toMap()); // Chuyển selectedBook thành Map và thêm vào một đối tượng Map mới
         database.updateChildren(updateValues)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
