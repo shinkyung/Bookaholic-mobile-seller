@@ -137,12 +137,19 @@ public class ProfileFragment extends Fragment {
 //        edtAddress = view.findViewById(R.id.edt_address);
 //        edtName = view.findViewById(R.id.edt_name);
         buttonSignOut = view.findViewById(R.id.button_profile_logout);
+
+
         addBook = view.findViewById(R.id.addBook);
         createVoucher = view.findViewById(R.id.createVoucher);
         manageVoucher = view.findViewById(R.id.manageVoucher);
         manageUser = view.findViewById(R.id.manageUser);
         statistic = view.findViewById(R.id.statistics);
-
+        statistic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), Statistic.class));
+            }
+        });
 //        if(currentUser!=null){
 //            edtAddress.setText(currentUser.getAddress());
 //            edtPhone.setText(currentUser.getPhoneNumber());
