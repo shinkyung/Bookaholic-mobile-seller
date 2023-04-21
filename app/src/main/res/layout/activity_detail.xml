@@ -30,6 +30,7 @@
             android:layout_height="35dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
             android:src="@drawable/baseline_keyboard_return_32"
             app:tint="?attr/colorOnSurfaceInverse" />
     </com.google.android.material.circularreveal.CircularRevealRelativeLayout>

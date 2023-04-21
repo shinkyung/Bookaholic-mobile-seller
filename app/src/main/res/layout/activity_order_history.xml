@@ -20,7 +20,8 @@
             android:gravity="start"
             android:layout_gravity="center"
             android:text="Incomplete"
-            android:background="@drawable/divider_item"
+            android:background="@color/container_secondary"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"/>
 
@@ -37,7 +38,8 @@
             android:padding="10dp"
             android:gravity="start"
             android:text="Complete"
-            android:background="@drawable/divider_item"
+            android:background="@color/container_secondary"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:textSize="24sp"
             android:textStyle="bold"/>

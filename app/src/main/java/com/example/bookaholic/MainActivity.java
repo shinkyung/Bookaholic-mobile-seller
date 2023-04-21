@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -96,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
             if (viewId == R.id.bottomNavBarButtonHome) {
                 Log.d(TAG, "Home button clicked!");
                 buttonHome.setImageResource(R.drawable.home_selected);
+                home.setTextColor(Color.parseColor("#7041EE"));
+                manage.setTextColor(Color.GRAY);
+                settings.setTextColor(Color.GRAY);
                 home.setTypeface(null, Typeface.BOLD);
                 manage.setTypeface(null, Typeface.NORMAL);
                 settings.setTypeface(null, Typeface.NORMAL);
@@ -105,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
             } else if (viewId == R.id.bottomNavBarButtonFavorite) {
                 Log.d(TAG, "Favorite button clicked!");
                 buttonFavorite.setImageResource(R.drawable.favorite_selected);
+                manage.setTextColor(Color.parseColor("#7041EE"));
+                home.setTextColor(Color.GRAY);
+                settings.setTextColor(Color.GRAY);
                 manage.setTypeface(null, Typeface.BOLD);
                 home.setTypeface(null, Typeface.NORMAL);
                 settings.setTypeface(null, Typeface.NORMAL);
@@ -113,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
                 switchFragment(R.id.fragmentcontainerMainActivity, fragmentManage);
             } else if (viewId == R.id.bottomNavBarButtonProfile) {
                 Log.d(TAG, "Profile button clicked!");
+                settings.setTextColor(Color.parseColor("#7041EE"));
+                manage.setTextColor(Color.GRAY);
+                home.setTextColor(Color.GRAY);
                 settings.setTypeface(null, Typeface.BOLD);
                 manage.setTypeface(null, Typeface.NORMAL);
                 home.setTypeface(null, Typeface.NORMAL);

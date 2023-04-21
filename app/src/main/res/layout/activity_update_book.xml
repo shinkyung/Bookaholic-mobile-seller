@@ -372,7 +372,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="374dp"
-                    android:backgroundTint="@color/red"
+                    android:backgroundTint="@color/md_theme_dark_primary"
                     android:text="Cancel"
                     android:textColor="@color/white"
                     android:textSize="17dp" />

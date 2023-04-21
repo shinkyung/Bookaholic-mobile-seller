@@ -6,7 +6,8 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="container_secondary">#7041EE</color>
 
     <color name="ellipse_3_color">#FF5B00</color>
     <color name="color_bg">#FFFFFF</color>
@@ -19,7 +20,7 @@
     <color name="brown">#2D0002</color>
 
     <color name="seed">#0072f1</color>
-    <color name="md_theme_light_primary">#005AC2</color>
+    <color name="md_theme_light_primary">#7041EE</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_primaryContainer">#D8E2FF</color>
     <color name="md_theme_light_onPrimaryContainer">#001A41</color>
@@ -80,4 +81,13 @@
     <color name="md_theme_dark_outlineVariant">#44474F</color>
     <color name="md_theme_dark_scrim">#000000</color>
     <color name="md_theme_light_yellow">#FEFF86</color>
+
+
+    <color name="topbar"> #E3ABEC</color>
+    <color name="backgrounditem"> #9DE7DA </color>
+    <color name="bottombar"> #9DF0C0</color>
+    <color name="mainbtn"> #C2DBF7</color>
+    <color name="subbtn"> #9FD6FF</color>
+    <color name="my_border_color">#e3abec</color>
+    <color name="colorapp2">#FFC0BEBE</color>
 </resources>
