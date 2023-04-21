@@ -1,12 +1,13 @@
-package com.example.bookaholic;
+package com.example.bookaholic.voucher;
 
-import com.example.bookaholic.details.Book;
 import com.google.firebase.database.Exclude;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Voucher implements Serializable {
+    public static Voucher currentVoucher;
+
     private String id, nameVoucher, idVoucher, typeVoucher, startVoucher, endVoucher;
     private int discountVoucher, minimumVoucher, quantityVoucher, limitVoucher;
 
@@ -14,8 +15,19 @@ public class Voucher implements Serializable {
     public static ArrayList<Voucher> allVouchers = new ArrayList<>();
 
     public Voucher(){}
+    public Voucher(Voucher voucher){
+        this.nameVoucher = voucher.nameVoucher;
+        this.idVoucher = voucher.idVoucher;
+        this.typeVoucher = voucher.typeVoucher;
+        this.startVoucher = voucher.startVoucher;
+        this.endVoucher = voucher.endVoucher;
+        this.discountVoucher = voucher.discountVoucher;
+        this.minimumVoucher = voucher.minimumVoucher;
+        this.quantityVoucher = voucher.quantityVoucher;
+        this.limitVoucher = voucher.limitVoucher;
+    }
     public Voucher(String nameVoucher, String idVoucher, String typeVoucher, String startVoucher, String endVoucher,
-            int discountVoucher, int minimumVoucher, int quantityVoucher, int limitVoucher){
+                   int discountVoucher, int minimumVoucher, int quantityVoucher, int limitVoucher){
         this.nameVoucher = nameVoucher;
         this.idVoucher = idVoucher;
         this.typeVoucher = typeVoucher;

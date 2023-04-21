@@ -11,10 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     public static FirebaseAuth firebaseAuth;
     public static FirebaseUser firebaseUser;
     public static User currentSyncedUser;
+
+    private TextView home, manage, settings;
 
     private ImageButton buttonHome;
     private ImageButton buttonFavorite;
@@ -65,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
         buttonFavorite = findViewById(R.id.bottomNavBarButtonFavorite);
         buttonProfile = findViewById(R.id.bottomNavBarButtonProfile);
 
+        home = findViewById(R.id.home);
+        manage = findViewById(R.id.wishlist);
+        settings = findViewById(R.id.profile);
+
         buttonHome.setOnClickListener(onBottomNavBarButtonClicked);
         buttonFavorite.setOnClickListener(onBottomNavBarButtonClicked);
         buttonProfile.setOnClickListener(onBottomNavBarButtonClicked);
@@ -88,17 +96,26 @@ public class MainActivity extends AppCompatActivity {
             if (viewId == R.id.bottomNavBarButtonHome) {
                 Log.d(TAG, "Home button clicked!");
                 buttonHome.setImageResource(R.drawable.home_selected);
+                home.setTypeface(null, Typeface.BOLD);
+                manage.setTypeface(null, Typeface.NORMAL);
+                settings.setTypeface(null, Typeface.NORMAL);
                 userDataChangedListener = fragmentHome;
                 booksDataChangedListener = fragmentHome;
                 switchFragment(R.id.fragmentcontainerMainActivity, fragmentHome);
             } else if (viewId == R.id.bottomNavBarButtonFavorite) {
                 Log.d(TAG, "Favorite button clicked!");
                 buttonFavorite.setImageResource(R.drawable.favorite_selected);
+                manage.setTypeface(null, Typeface.BOLD);
+                home.setTypeface(null, Typeface.NORMAL);
+                settings.setTypeface(null, Typeface.NORMAL);
                 userDataChangedListener = fragmentManage;
                 booksDataChangedListener = fragmentManage;
                 switchFragment(R.id.fragmentcontainerMainActivity, fragmentManage);
             } else if (viewId == R.id.bottomNavBarButtonProfile) {
                 Log.d(TAG, "Profile button clicked!");
+                settings.setTypeface(null, Typeface.BOLD);
+                manage.setTypeface(null, Typeface.NORMAL);
+                home.setTypeface(null, Typeface.NORMAL);
                 buttonProfile.setImageResource(R.drawable.profile_selected);
                 switchFragment(R.id.fragmentcontainerMainActivity, fragmentProfile);
             } else {

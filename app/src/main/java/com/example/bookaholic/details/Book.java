@@ -20,9 +20,10 @@ public class Book implements Serializable {
     @Exclude
     public static ArrayList<Book> allBooks = new ArrayList<>();
     private String imageUrl, title, author, category, description, downloadURL, size,publicationDate,
-            publisher, typeOfCover, recentlyDate, id;
+            publisher, typeOfCover, recentlyDate, id, displayablePrice;
     private ArrayList<Comment> comments = new ArrayList<>();
     private int price, quantity, numberOfPages, buyer;
+    private float rateAvg;
     private ArrayList<String> images = new ArrayList<>();
 
     public Book(){
@@ -53,8 +54,9 @@ public class Book implements Serializable {
     }
 
     //update
-    public Book(String imageUrl, String title, String author, String category, String description, int quantity, int price
-            , String publicationDate, String publisher, String size, int numberOfPages, String typeOfCover, ArrayList<String> images, ArrayList<Comment> comments, int buyer, String recentlyDate) {
+    public Book(String id, String imageUrl, String title, String author, String category, String description, int quantity, int price
+            , String publicationDate, String publisher, String size, int numberOfPages, String typeOfCover, ArrayList<String> images, ArrayList<Comment> comments, int buyer, String recentlyDate, String display, Float rating) {
+        this.id = id;
         this.imageUrl = imageUrl;
         this.title = title;
         this.author = author;
@@ -71,6 +73,8 @@ public class Book implements Serializable {
         this.images = images;
         this.buyer = buyer;
         this.recentlyDate = recentlyDate;
+        this.rateAvg = rating;
+        this.displayablePrice = display;
     }
 
     public Book(String title, String author, String category, String description, String downloadURL, ArrayList<Comment> comments, int price, ArrayList<String> images
@@ -300,11 +304,26 @@ public class Book implements Serializable {
         result.put("typeOfCover", typeOfCover);
         result.put("images", images);
         result.put("buyer", buyer);
-        result.put("displayablePrice", displayablePrice());
-        result.put("rateAvg", rateAvg());
+        result.put("displayablePrice", displayablePrice);
+        result.put("rateAvg", rateAvg);
         result.put("recentlyDate", recentlyDate);
         result.put("id", id);
-
         return result;
+    }
+
+    public String getDisplayablePrice() {
+        return displayablePrice;
+    }
+
+    public void setDisplayablePrice(String displayablePrice) {
+        this.displayablePrice = displayablePrice;
+    }
+
+    public float getRateAvg() {
+        return rateAvg;
+    }
+
+    public void setRateAvg(float rateAvg) {
+        this.rateAvg = rateAvg;
     }
 }

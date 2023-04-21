@@ -22,6 +22,9 @@
             android:name=".orderHistory.OrderDetail"
             android:exported="false" />
         <activity
+            android:name=".voucher.VoucherActivity"
+            android:exported="false" />
+        <activity
             android:name=".fragment"
             android:exported="false" />
         <activity

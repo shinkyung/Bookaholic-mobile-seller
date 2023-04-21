@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.bookaholic.voucher.VoucherActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +28,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 /**
@@ -163,7 +163,13 @@ public class ProfileFragment extends Fragment {
                 startActivity(new Intent(getActivity(), CreateVoucher.class));
             }
         });
-
+        manageVoucher.setOnClickListener(new View.OnClickListener() {
+            //VoucherActivity
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), VoucherActivity.class));
+            }
+        });
 
 
         buttonSignOut.setOnClickListener(v -> signOut());

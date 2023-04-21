@@ -119,7 +119,6 @@ public class UpdateBook extends AppCompatActivity {
         binding.numberOfPagesBook.setText(selectedBook.getNumberOfPages().toString());
         binding.typeOfCoverBook.setText(selectedBook.getTypeOfCover());
 
-
         binding.bGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -299,9 +298,10 @@ public class UpdateBook extends AppCompatActivity {
             image = selectedBook.getImageUrl();
             images = selectedBook.getImages();
         }
-        Book book = new Book(image, name, author, category, desciption, quantity, price
-                , publicationDate, publisher, size, numberOfPages, typeOfCover, images, null, selectedBook.getBuyer(), selectedBook.getRecentlyDate());
-        String bookId = selectedBook.getId(); // Xác định ID của selectedBook
+        String bookId = selectedBook.getId();
+        Book book = new Book(bookId, image, name, author, category, desciption, quantity, price
+                , publicationDate, publisher, size, numberOfPages, typeOfCover, images, null, selectedBook.getBuyer(), selectedBook.getRecentlyDate(), selectedBook.getDisplayablePrice(), selectedBook.getRateAvg());
+         // Xác định ID của selectedBook
         Map<String, Object> updateValues = new HashMap<>();
         updateValues.put(bookId, book.toMap()); // Chuyển selectedBook thành Map và thêm vào một đối tượng Map mới
         database.updateChildren(updateValues)
