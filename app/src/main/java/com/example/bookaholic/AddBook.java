@@ -282,14 +282,14 @@ public class AddBook extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(getApplicationContext(), "Successful Saved", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(AddBook.this, MainActivity.class));
+                        onBackPressed();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(AddBook.this, MainActivity.class));
+                        onBackPressed();
                     }
                 });
     }
