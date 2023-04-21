@@ -50,7 +50,7 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Book currentBook = mBooks.get(position);
 
         Glide.with(holder.itemView)
@@ -170,7 +170,7 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
 
             if ((selectedType.isEmpty() || matchType)
                     && book.hasPriceInRange(minPrice, maxPrice)) {
-                this.mBooks.add(book.deepCopy());
+                this.mBooks.add(book.deepCopyUpdate());
             }
         }
         notifyDataSetChanged();
@@ -184,7 +184,7 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
         else {
             for (Book book : Book.allBooks) {
                 if (book.hasNameSimilarTo(queryText))
-                    this.mBooks.add(book.deepCopy());
+                    this.mBooks.add(book.deepCopyUpdate());
             }
         }
         notifyDataSetChanged();
@@ -193,7 +193,7 @@ public class ManageBookAdapter extends RecyclerView.Adapter<ManageBookAdapter.Vi
     public void setBooks(ArrayList<Book> books) {
         this.mBooks = new ArrayList<>();
         for (Book book : books) {
-            this.mBooks.add(book.deepCopy());
+            this.mBooks.add(book.deepCopyUpdate());
         }
     }
 }

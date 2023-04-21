@@ -8,8 +8,8 @@
     android:background="@drawable/rounded_rectangle">
     <ImageView
         android:id="@+id/userImage"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
         android:scaleType="fitXY"/>
 
@@ -30,14 +30,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:text="Fullname:"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/fullnameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17sp"/>
+                android:textSize="15sp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,14 +48,14 @@
                 android:layout_height="wrap_content"
                 android:text="Email:"
                 android:layout_marginEnd="10dp"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/emailTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17sp"/>
+                android:textSize="15sp"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

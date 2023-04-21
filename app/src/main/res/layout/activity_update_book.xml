@@ -24,44 +24,72 @@
 
                 <ImageButton
                     android:id="@+id/bGallery"
-                    android:layout_width="130dp"
+                    android:layout_width="100dp"
                     android:layout_height="130dp"
                     android:layout_centerInParent="true"
                     android:background="@null"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     android:src="@drawable/add_image"
                     app:fabCustomSize="80dp"
-                    app:maxImageSize="70dp"/>
+                    app:maxImageSize="70dp" />
             </RelativeLayout>
 
 
-            <EditText
-                android:id="@+id/nameBook"
+            <LinearLayout
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:paddingStart="5dp"
-                android:gravity="start|center_vertical"
-                android:hint="Title"
-                android:inputType="text"
-                android:textColor="@android:color/black"
-                android:background="@drawable/edit_text_border"/>
-
-            <EditText
-                android:id="@+id/nameAuthor"
-                android:layout_width="350dp"
-                android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginEnd="50dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="5dp"
+                    android:text="Title: "
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/nameBook"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_border"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="10dp"
+                    android:hint="Book Name"
+                    android:inputType="text"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="50dp"
-                android:paddingStart="5dp"
-                android:gravity="start|center_vertical"
-                android:hint="Author"
-                android:inputType="text"
-                android:textColor="@android:color/black"
-                android:background="@drawable/edit_text_border"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="5dp"
+                    android:text="Author: "
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/nameAuthor"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_border"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="10dp"
+                    android:hint="Author Name"
+                    android:inputType="text"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="350dp"
@@ -76,7 +104,6 @@
                     android:text="Category: "
                     android:gravity="start|center_vertical"
                     android:textColor="@android:color/black"
-                    android:background="@drawable/edit_text_border"
                     android:textSize="17dp"/>
 
                 <Spinner
@@ -90,120 +117,236 @@
                     android:background="@drawable/edit_text_border"
                     android:spinnerMode="dropdown"/>
             </LinearLayout>
-            <EditText
-                android:id="@+id/priceBook"
+
+            <LinearLayout
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:paddingStart="5dp"
-                android:gravity="start|center_vertical"
-                android:hint="Price"
-                android:inputType="number"
-                android:digits="0123456789"
-                android:textColor="@android:color/black"
-                android:background="@drawable/edit_text_border"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp">
 
-            <EditText
-                android:id="@+id/descriptionBook"
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="5dp"
+                    android:text="Price: "
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/priceBook"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_border"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="10dp"
+                    android:hint="Book Price"
+                    android:inputType="number"
+                    android:digits="0123456789"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <RelativeLayout
                 android:layout_width="350dp"
                 android:layout_height="150dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="50dp"
-                android:layout_marginStart="50dp"
-                android:paddingStart="5dp"
-                android:gravity="start"
-                android:hint="Description"
-                android:inputType="textMultiLine"
-                android:textColor="@android:color/black"
-                android:background="@drawable/edit_text_border"/>
+                android:gravity="start">
 
-            <EditText
-                android:id="@+id/quantityBook"
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="5dp"
+                    android:text="Description: "
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/descriptionBook"
+                    android:layout_width="250dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/edit_text_border"
+                    android:gravity="start"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginStart="100dp"
+                    android:paddingStart="10dp"
+                    android:hint="Book Price"
+                    android:inputType="textMultiLine"
+                    android:textColor="@android:color/black"/>
+            </RelativeLayout>
+
+            <LinearLayout
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:paddingStart="5dp"
-                android:gravity="start|center_vertical"
-                android:hint="Quantity"
-                android:inputType="number"
-                android:digits="0123456789"
-                android:textColor="@android:color/black"
-                android:background="@drawable/edit_text_border"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp">
 
-            <TextView
-                android:id="@+id/publicationDateBook"
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="5dp"
+                    android:text="Quantity: "
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/quantityBook"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_border"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="10dp"
+                    android:hint="Book Quantity"
+                    android:inputType="number"
+                    android:digits="0123456789"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:paddingStart="5dp"
-                android:gravity="start|center_vertical"
-                android:text="Publication date: "
-                android:textSize="17dp"
-                android:textColor="@android:color/black"
-                android:background="@drawable/edit_text_border"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp">
 
-            <EditText
-                android:id="@+id/publisherBook"
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="5dp"
+                    android:text="Date: "
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:id="@+id/publicationDateBook"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_border"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="10dp"
+                    android:hint="Publication date"
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:paddingStart="5dp"
-                android:gravity="start|center_vertical"
-                android:hint="Publisher"
-                android:inputType="textMultiLine"
-                android:textColor="@android:color/black"
-                android:background="@drawable/edit_text_border"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp">
 
-            <EditText
-                android:id="@+id/sizeBook"
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="5dp"
+                    android:text="Publisher: "
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/publisherBook"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_border"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="10dp"
+                    android:hint="Publisher Name"
+                    android:inputType="text"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:paddingStart="5dp"
-                android:gravity="start|center_vertical"
-                android:hint="Size"
-                android:inputType="text"
-                android:textColor="@android:color/black"
-                android:background="@drawable/edit_text_border"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp">
 
-            <EditText
-                android:id="@+id/numberOfPagesBook"
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="5dp"
+                    android:text="Size: "
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/sizeBook"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_border"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="10dp"
+                    android:hint="Book Size"
+                    android:inputType="text"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:paddingStart="5dp"
-                android:gravity="start|center_vertical"
-                android:hint="Number of pages"
-                android:digits="0123456789"
-                android:inputType="number"
-                android:textColor="@android:color/black"
-                android:background="@drawable/edit_text_border"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp">
 
-            <EditText
-                android:id="@+id/typeOfCoverBook"
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="5dp"
+                    android:text="Pages: "
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/numberOfPagesBook"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_border"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="10dp"
+                    android:hint="Number of pages"
+                    android:inputType="number"
+                    android:digits="0123456789"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:paddingStart="5dp"
-                android:gravity="start|center_vertical"
-                android:hint="Type of cover"
-                android:inputType="text"
-                android:textColor="@android:color/black"
-                android:background="@drawable/edit_text_border"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="5dp"
+                    android:text="Type: "
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/typeOfCoverBook"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_border"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="10dp"
+                    android:hint="Type of cover"
+                    android:inputType="text"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
 
 
             <RelativeLayout

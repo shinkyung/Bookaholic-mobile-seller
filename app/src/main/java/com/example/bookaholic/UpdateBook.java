@@ -300,7 +300,7 @@ public class UpdateBook extends AppCompatActivity {
         }
         String bookId = selectedBook.getId();
         Book book = new Book(bookId, image, name, author, category, desciption, quantity, price
-                , publicationDate, publisher, size, numberOfPages, typeOfCover, images, null, selectedBook.getBuyer(), selectedBook.getRecentlyDate(), selectedBook.getDisplayablePrice(), selectedBook.getRateAvg());
+                , publicationDate, publisher, size, numberOfPages, typeOfCover, images, selectedBook.getBuyer(), selectedBook.getRecentlyDate(), selectedBook.displayablePrice(), selectedBook.getRateAvg());
          // Xác định ID của selectedBook
         Map<String, Object> updateValues = new HashMap<>();
         updateValues.put(bookId, book.toMap()); // Chuyển selectedBook thành Map và thêm vào một đối tượng Map mới

@@ -55,7 +55,7 @@ public class Book implements Serializable {
 
     //update
     public Book(String id, String imageUrl, String title, String author, String category, String description, int quantity, int price
-            , String publicationDate, String publisher, String size, int numberOfPages, String typeOfCover, ArrayList<String> images, ArrayList<Comment> comments, int buyer, String recentlyDate, String display, Float rating) {
+            , String publicationDate, String publisher, String size, int numberOfPages, String typeOfCover, ArrayList<String> images,  int buyer, String recentlyDate, String display, Float rating) {
         this.id = id;
         this.imageUrl = imageUrl;
         this.title = title;
@@ -69,7 +69,6 @@ public class Book implements Serializable {
         this.size = size;
         this.numberOfPages = numberOfPages;
         this.typeOfCover = typeOfCover;
-        this.comments = comments;
         this.images = images;
         this.buyer = buyer;
         this.recentlyDate = recentlyDate;
@@ -190,6 +189,13 @@ public class Book implements Serializable {
     @Exclude
     public Book deepCopy() {
         return new Book(this.title, this.author, this.category, this.description, this.downloadURL, this.comments, this.price, this.images, this.quantity, this.size, this.publicationDate, this.publisher,this.typeOfCover, this.recentlyDate, this.numberOfPages, this.buyer);
+    }
+
+    @NonNull
+    @Exclude
+    public Book deepCopyUpdate() {
+        return new Book( this.id, this.imageUrl, this.title, this.author, this.category, this.description, this.quantity, this.price
+            , this.publicationDate, this.publisher, this.size, this.numberOfPages, this.typeOfCover, this.images,  this.buyer, this.recentlyDate, this.displayablePrice, this.rateAvg);
     }
 
     @SuppressLint("DefaultLocale")

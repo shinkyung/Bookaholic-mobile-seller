@@ -50,11 +50,11 @@
 
                 <ImageButton
                     android:id="@+id/bGallery"
-                    android:layout_width="130dp"
+                    android:layout_width="100dp"
                     android:layout_height="130dp"
                     android:layout_centerInParent="true"
                     android:background="@null"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     android:src="@drawable/add_image"
                     app:fabCustomSize="80dp"
                     app:maxImageSize="70dp" />
