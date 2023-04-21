@@ -6,8 +6,6 @@ import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.net.InetAddress;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

@@ -1,10 +1,7 @@
 package com.example.bookaholic;
 
-import static android.content.ContentValues.TAG;
-
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,7 +13,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;

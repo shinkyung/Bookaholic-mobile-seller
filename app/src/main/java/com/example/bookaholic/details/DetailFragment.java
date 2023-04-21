@@ -1,24 +1,17 @@
 package com.example.bookaholic.details;
 
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bookaholic.Comment;
 import com.example.bookaholic.R;
-
-import java.util.ArrayList;
 
 public class DetailFragment extends Fragment {
     private String mAuthorContent, mCategoryContent, mDateContent, mCoverTypeContent, mSizeContent, mPublisher;

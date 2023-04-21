@@ -1,5 +1,4 @@
 package com.example.bookaholic;
-import android.os.Parcelable;
 
 import com.example.bookaholic.details.Book;
 

@@ -94,7 +94,7 @@
                 android:textSize="24sp"
                 android:gravity="start"
                 android:background="@drawable/divider_item"
-                android:text="Manage Vouchers"/>
+                android:text="Vouchers List"/>
 
             <TextView
                 android:id="@+id/manageUser"
@@ -103,7 +103,7 @@
                 android:padding="10dp"
                 android:textSize="24sp"
                 android:gravity="start"
-                android:text="Manage Users"/>
+                android:text="Users List"/>
 
             <TextView
                 android:id="@+id/statistics"

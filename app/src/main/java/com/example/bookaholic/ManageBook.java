@@ -1,8 +1,6 @@
 package com.example.bookaholic;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;

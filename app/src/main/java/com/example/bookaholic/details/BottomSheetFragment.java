@@ -2,24 +2,16 @@ package com.example.bookaholic.details;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Rect;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ScrollView;
 
 import com.example.bookaholic.Comment;
 import com.example.bookaholic.R;

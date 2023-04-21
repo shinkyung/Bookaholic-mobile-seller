@@ -9,9 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bookaholic.voucher.Voucher;
-import com.example.bookaholic.voucher.VoucherActivity;
-import com.example.bookaholic.voucher.VoucherAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

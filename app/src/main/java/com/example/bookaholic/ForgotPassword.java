@@ -1,7 +1,6 @@
 package com.example.bookaholic;
 
 import static android.content.ContentValues.TAG;
-import static com.example.bookaholic.MainActivity.firebaseAuth;
 import static com.example.bookaholic.Tools.showToast;
 
 import android.content.Intent;
@@ -9,8 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
