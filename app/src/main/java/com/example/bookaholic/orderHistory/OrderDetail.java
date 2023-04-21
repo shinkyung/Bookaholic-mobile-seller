@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.bookaholic.MainActivity;
 import com.example.bookaholic.Order;
@@ -33,6 +35,7 @@ public class OrderDetail extends AppCompatActivity {
     OnOrderDataLoadedListener listener;
     String orderOwner, orderId;
     Button confirmButton, denyButton;
+    TextView statusText;
     private ImageView returnBtn;
 
     @SuppressLint("MissingInflatedId")
@@ -41,6 +44,7 @@ public class OrderDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_detail);
         returnBtn = findViewById(R.id.returnOrder);
+        statusText = findViewById(R.id.statusTxt);
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,7 +92,8 @@ public class OrderDetail extends AppCompatActivity {
 
 
         confirmButton.setOnClickListener(view -> {
-            statusRef.setValue("Complete");
+            statusRef.setValue("Completed");
+            statusText.setTextColor(Color.GREEN);
             startActivity(new Intent(OrderDetail.this, MainActivity.class));
         });
     }
@@ -101,6 +106,7 @@ public class OrderDetail extends AppCompatActivity {
 
         denyButton.setOnClickListener(view -> {
             statusRef.setValue("Denied");
+            statusText.setTextColor(Color.RED);
             startActivity(new Intent(OrderDetail.this, MainActivity.class));
         });
     }
