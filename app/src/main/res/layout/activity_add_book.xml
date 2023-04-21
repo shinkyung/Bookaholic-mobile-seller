@@ -398,7 +398,7 @@
                     android:layout_marginStart="374dp"
                     android:backgroundTint="@color/md_theme_dark_primary"
                     android:text="Cancel"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="17dp" />
             </RelativeLayout>
         </LinearLayout>

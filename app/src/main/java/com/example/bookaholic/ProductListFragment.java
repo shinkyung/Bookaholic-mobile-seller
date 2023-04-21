@@ -37,14 +37,13 @@ import com.example.bookaholic.details.Book;
 
 import java.util.ArrayList;
 
-public class ProductListFragment extends Fragment implements UserDataChangedListener, BooksDataChangedListener{
+public class ProductListFragment extends Fragment {
 
     private TextView usernameView;
     private ImageButton  buttonFilter;
     private SearchView searchView;
     private RecyclerView recyclerView;
     ProgressBar progressBar;
-    private BookAdapter adapter;
     private ScrollView filterContainer;
     private Button buttonTypeScience, buttonTypeRomantic, buttonTypeMystery,
             buttonTypeHorror, buttonTypeSelfHelp, buttonTypeShortStories,
@@ -92,24 +91,24 @@ public class ProductListFragment extends Fragment implements UserDataChangedList
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_product_list, container, false);
 
-        adapter = new BookAdapter(view.getContext(), Book.allBooks);
-        recyclerView = view.findViewById(R.id.recyclerview_home);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        adapter = new BookAdapter(view.getContext(), Book.allBooks);
+//        recyclerView = view.findViewById(R.id.recyclerview_home);
+//        recyclerView.setAdapter(adapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
         progressBar = view.findViewById(R.id.progressbar_home_fragment);
-        updateProgressBar();
+//        updateProgressBar();
 
         searchView = view.findViewById(R.id.searchview_home);
-        searchView.setOnQueryTextListener(searchQueryTextListener);
+//        searchView.setOnQueryTextListener(searchQueryTextListener);
 
 
         filterContainer = view.findViewById(R.id.filters_container);
 
         filterConfirmButton = view.findViewById(R.id.button_filter_confirm);
         filterResetButton = view.findViewById(R.id.button_filter_reset);
-        filterConfirmButton.setOnClickListener(v -> onConfirm());
+//        filterConfirmButton.setOnClickListener(v -> onConfirm());
         filterResetButton.setOnClickListener(v -> resetFilters());
 
         buttonTypeScience = view.findViewById(R.id.button_select_filter_type_science);
@@ -245,23 +244,23 @@ public class ProductListFragment extends Fragment implements UserDataChangedList
     }
 
 
-    @SuppressLint("NotifyDataSetChanged")
-    public void notifyAdapter() {
-        adapter.setBooks(Book.allBooks);
-        adapter.notifyDataSetChanged();
-    }
-
-    public void updateProgressBar() {
-        try {
-            progressBar.setVisibility(adapter.getItemCount() == 0 ? View.VISIBLE : View.GONE);
-        } catch (Exception exception) {
-            Log.d(TAG, exception.toString());
-        }
-    }
-    @Override
-    public void updateUserRelatedViews() {
-
-    }
+//    @SuppressLint("NotifyDataSetChanged")
+//    public void notifyAdapter() {
+//        adapter.setBooks(Book.allBooks);
+//        adapter.notifyDataSetChanged();
+//    }
+//
+//    public void updateProgressBar() {
+//        try {
+//            progressBar.setVisibility(adapter.getItemCount() == 0 ? View.VISIBLE : View.GONE);
+//        } catch (Exception exception) {
+//            Log.d(TAG, exception.toString());
+//        }
+//    }
+//    @Override
+//    public void updateUserRelatedViews() {
+//
+//    }
     private void hideFilterMenu() {
         Log.d(TAG, "hide filter now");
         ObjectAnimator animator = ObjectAnimator.ofFloat(filterContainer, "translationX", 0);
@@ -276,41 +275,41 @@ public class ProductListFragment extends Fragment implements UserDataChangedList
         animator.start();
     }
 
-    private void onConfirm() {
-        hideFilterMenu();
-        String minPriceString = inputMinPrice.getText().toString();
-        String maxPriceString = inputMaxPrice.getText().toString();
-
-        if (!minPriceString.isEmpty())
-            minPrice = Integer.parseInt(inputMinPrice.getText().toString());
-
-        if (!maxPriceString.isEmpty())
-            maxPrice = Integer.parseInt(inputMaxPrice.getText().toString());
-
-        adapter.filterByOptions(selectedType, minPrice, maxPrice);
-    }
-    @Override
-    public void updateBooksRelatedViews() {
-        notifyAdapter();
-        updateProgressBar();
-    }
-
-    private void startCartActivity() {
-        startActivity(new Intent(ProductListFragment.this.getActivity(), CartActivity.class));
-    }
-
-    private final SearchView.OnQueryTextListener searchQueryTextListener = new SearchView.OnQueryTextListener() {
-        @Override
-        public boolean onQueryTextSubmit(String query) {
-            return false;
-        }
-
-        @Override
-        public boolean onQueryTextChange(String newText) {
-            adapter.filterByName(newText);
-            return false;
-        }
-    };
+//    private void onConfirm() {
+//        hideFilterMenu();
+//        String minPriceString = inputMinPrice.getText().toString();
+//        String maxPriceString = inputMaxPrice.getText().toString();
+//
+//        if (!minPriceString.isEmpty())
+//            minPrice = Integer.parseInt(inputMinPrice.getText().toString());
+//
+//        if (!maxPriceString.isEmpty())
+//            maxPrice = Integer.parseInt(inputMaxPrice.getText().toString());
+//
+//        adapter.filterByOptions(selectedType, minPrice, maxPrice);
+//    }
+//    @Override
+//    public void updateBooksRelatedViews() {
+//        notifyAdapter();
+//        updateProgressBar();
+//    }
+//
+//    private void startCartActivity() {
+//        startActivity(new Intent(ProductListFragment.this.getActivity(), CartActivity.class));
+//    }
+//
+//    private final SearchView.OnQueryTextListener searchQueryTextListener = new SearchView.OnQueryTextListener() {
+//        @Override
+//        public boolean onQueryTextSubmit(String query) {
+//            return false;
+//        }
+//
+//        @Override
+//        public boolean onQueryTextChange(String newText) {
+//            adapter.filterByName(newText);
+//            return false;
+//        }
+//    };
     @Override
     public void onDestroy() {
         super.onDestroy();

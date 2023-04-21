@@ -139,8 +139,8 @@ public class ManageFragment extends Fragment implements UserDataChangedListener,
             else selectedType.add("history");
             updateTypeFilterButtons();
         } else if (v.getId() == R.id.button_select_filter_type_essay_manage) {
-            if (selectedType.contains("essay")) selectedType.remove("essay");
-            else selectedType.add("essay");
+            if (selectedType.contains("essays")) selectedType.remove("essays");
+            else selectedType.add("essays");
             updateTypeFilterButtons();
         } else if (v.getId() == R.id.button_select_filter_type_cookbooks_manage) {
             if (selectedType.contains("cookbooks")) selectedType.remove("cookbooks");
@@ -201,7 +201,7 @@ public class ManageFragment extends Fragment implements UserDataChangedListener,
             buttonTypeHistory.setBackgroundColor(Color.WHITE);
             buttonTypeHistory.setTextColor(Color.BLACK);
         }
-        if (selectedType.contains("essay")) {
+        if (selectedType.contains("essays")) {
             buttonTypeEssay.setBackgroundColor(Color.BLACK);
             buttonTypeEssay.setTextColor(Color.WHITE);
         } else {
