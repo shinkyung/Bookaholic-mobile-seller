@@ -54,7 +54,7 @@ public class RemoveBook extends AppCompatActivity {
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
-                                startActivity(new Intent(RemoveBook.this, MainActivity.class));
+                                onBackPressed();
                             }
                         });
             }

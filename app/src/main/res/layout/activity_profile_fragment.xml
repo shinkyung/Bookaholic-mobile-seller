@@ -62,8 +62,7 @@
                 android:id="@+id/emailAdmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="27sp"
-                android:text="Bookaholic@gmail.com"/>
+                android:textSize="27sp"/>
 
 
             <TextView

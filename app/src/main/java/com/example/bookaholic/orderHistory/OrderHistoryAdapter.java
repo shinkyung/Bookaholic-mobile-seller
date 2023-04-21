@@ -2,6 +2,7 @@ package com.example.bookaholic.orderHistory;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +66,11 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         Order order = mDataList.get(position);
         holder.dateTxt.setText(order.getCreatedAt());
         holder.statusTxt.setText(order.getOrderStatus());
+        if(order.getOrderStatus().contains("Denied"))
+            holder.statusTxt.setTextColor(Color.RED);
+        else if (order.getOrderStatus().contains("Complete")) {
+            holder.statusTxt.setTextColor(Color.GREEN);
+        }
         holder.totalTxt.setText(NumberFormat.getNumberInstance(Locale.US).format(order.getTotalPrice()) + " đ");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();

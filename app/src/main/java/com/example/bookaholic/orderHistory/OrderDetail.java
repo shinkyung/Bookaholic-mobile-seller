@@ -93,7 +93,6 @@ public class OrderDetail extends AppCompatActivity {
 
         confirmButton.setOnClickListener(view -> {
             statusRef.setValue("Completed");
-            statusText.setTextColor(Color.GREEN);
             startActivity(new Intent(OrderDetail.this, MainActivity.class));
         });
     }
@@ -106,7 +105,6 @@ public class OrderDetail extends AppCompatActivity {
 
         denyButton.setOnClickListener(view -> {
             statusRef.setValue("Denied");
-            statusText.setTextColor(Color.RED);
             startActivity(new Intent(OrderDetail.this, MainActivity.class));
         });
     }
