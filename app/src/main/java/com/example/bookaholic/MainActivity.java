@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 home.setTypeface(null, Typeface.BOLD);
                 manage.setTypeface(null, Typeface.NORMAL);
                 settings.setTypeface(null, Typeface.NORMAL);
+                buttonProfile.setColorFilter(Color.parseColor("#B2B2B2"));
                 userDataChangedListener = fragmentHome;
                 booksDataChangedListener = fragmentHome;
                 switchFragment(R.id.fragmentcontainerMainActivity, fragmentHome);
@@ -115,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 manage.setTypeface(null, Typeface.BOLD);
                 home.setTypeface(null, Typeface.NORMAL);
                 settings.setTypeface(null, Typeface.NORMAL);
+                buttonProfile.setColorFilter(Color.parseColor("#B2B2B2"));
                 userDataChangedListener = fragmentManage;
                 booksDataChangedListener = fragmentManage;
                 switchFragment(R.id.fragmentcontainerMainActivity, fragmentManage);
@@ -127,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 manage.setTypeface(null, Typeface.NORMAL);
                 home.setTypeface(null, Typeface.NORMAL);
                 buttonProfile.setImageResource(R.drawable.profile_selected);
+                buttonProfile.setColorFilter(Color.parseColor("#7041EE"));
                 switchFragment(R.id.fragmentcontainerMainActivity, fragmentProfile);
             } else {
                 Log.d(TAG, "Don't know which button clicked!");

@@ -74,12 +74,12 @@
 
         <ImageButton
             android:id="@+id/bottomNavBarButtonProfile"
-            android:src="@drawable/profile_unselected"
+            android:src="@drawable/baseline_settings_24"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             android:layout_width="30dp"
             android:layout_height="39dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:layout_alignStart="@id/profile"
             android:layout_toRightOf="@id/bottomNavBarButtonFavorite"
@@ -91,6 +91,7 @@
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:text="Settings"
+            android:layout_marginTop="5dp"
             android:textColor="@color/gray"
             android:textSize="15sp"
             android:layout_toRightOf="@id/wishlist"
