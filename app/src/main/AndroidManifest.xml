@@ -30,8 +30,12 @@
         <activity
             android:name=".fragment"
             android:exported="false" />
+
         <activity
             android:name=".ProfileFragment"
+            android:exported="false" />
+        <activity
+            android:name=".UserActivity"
             android:exported="false" />
         <activity
             android:name=".ManageBook"

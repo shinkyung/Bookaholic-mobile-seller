@@ -150,13 +150,12 @@ public class ProfileFragment extends Fragment {
                 startActivity(new Intent(getActivity(), Statistic.class));
             }
         });
-//        if(currentUser!=null){
-//            edtAddress.setText(currentUser.getAddress());
-//            edtPhone.setText(currentUser.getPhoneNumber());
-//            edtEmail.setText(currentUser.getEmail());
-//            edtName.setText(currentUser.getFullName());
-//        }
-
+        manageUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), UserActivity.class));
+            }
+        });
         addBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

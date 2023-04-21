@@ -3,8 +3,12 @@ package com.example.bookaholic;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.bookaholic.orderHistory.OrderHistoryAdapter;
 import com.github.mikephil.charting.charts.LineChart;
@@ -28,11 +32,21 @@ import java.util.Date;
 public class Statistic extends AppCompatActivity {
     ArrayList<Order> orderC;
 
+    ImageView returnBtn;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistic);
 
+        returnBtn = findViewById(R.id.returnStatistic);
+        returnBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         orderC = new ArrayList<>();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference usersRef = database.getReference("Users");

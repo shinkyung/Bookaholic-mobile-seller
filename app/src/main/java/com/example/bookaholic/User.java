@@ -7,11 +7,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class User {
+public class User implements Serializable {
     private String fullName, phoneNumber, address, email, id, avatar;
     private ArrayList<Integer> favoriteBookIds = new ArrayList<>();
     private Map<String, Integer> quantityByBookId = new HashMap<>();
