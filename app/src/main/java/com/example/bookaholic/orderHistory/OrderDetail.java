@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.bookaholic.MainActivity;
 import com.example.bookaholic.Order;
 import com.example.bookaholic.OrderBook;
 import com.example.bookaholic.R;
@@ -88,6 +89,7 @@ public class OrderDetail extends AppCompatActivity {
 
         confirmButton.setOnClickListener(view -> {
             statusRef.setValue("Complete");
+            startActivity(new Intent(OrderDetail.this, MainActivity.class));
         });
     }
 
@@ -99,6 +101,7 @@ public class OrderDetail extends AppCompatActivity {
 
         denyButton.setOnClickListener(view -> {
             statusRef.setValue("Denied");
+            startActivity(new Intent(OrderDetail.this, MainActivity.class));
         });
     }
 }

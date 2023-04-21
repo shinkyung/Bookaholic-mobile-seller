@@ -51,6 +51,8 @@ public class Book implements Serializable {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         this.recentlyDate = currentDate.format(formatter);
+        this.rateAvg = 0;
+        this.displayablePrice = getDisplayablePrice();
     }
 
     //update
