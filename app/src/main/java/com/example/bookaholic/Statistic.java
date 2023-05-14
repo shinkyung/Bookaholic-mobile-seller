@@ -8,24 +8,26 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 
 public class Statistic extends AppCompatActivity {
     ArrayList<Order> orderC;
@@ -45,6 +47,7 @@ public class Statistic extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
         orderC = new ArrayList<>();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference usersRef = database.getReference("Users");
@@ -63,53 +66,62 @@ public class Statistic extends AppCompatActivity {
                             }
                         }
                     }
-                    LineChart lineChart = findViewById(R.id.lineChart);
-                    ArrayList<Entry> entries = new ArrayList<>();
-
+                    BarChart barChart = findViewById(R.id.barChart);
+                    barChart.getAxisRight().setEnabled(false);
+                    XAxis xAxis = barChart.getXAxis();
+                    xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                    ArrayList<BarEntry> entries = new ArrayList<>();
+                    int count = 0;
+                    int day;
                     for (int i = 0; orderC.size() != 0;) {
-                        float value = 0f;
+                        float value = 0;
+                        String[] split = orderC.get(i).getCreatedAt().split("/");
+                        day = Integer.parseInt(split[0]);
                         String dateStr = orderC.get(i).getCreatedAt();
                         for (int j = i; j < orderC.size();j++){
+                            count += 1;
                             if (dateStr.equalsIgnoreCase(orderC.get(j).getCreatedAt())){
-                                value =value + orderC.get(j).getTotalPrice().floatValue();
-                                System.out.println(value);
+                                value = value + orderC.get(j).getTotalPrice().floatValue() + count;
                                 orderC.remove(j);
                                 j--;
                             }
-                            System.out.println(value);
                         }
-                        Date date = null;
-                        try {
-                            date = new SimpleDateFormat("dd/MM/yyyy").parse(dateStr);
-                        } catch (ParseException e) {
-                            throw new RuntimeException(e);
-                        }
-                        long timeMillis = date.getTime();
-                        entries.add(new Entry(timeMillis, value));
+
+                        entries.add(new BarEntry(day,value));
                     }
 
-                    LineDataSet dataSet = new LineDataSet(entries, "Label");
-                    dataSet.setColor(Color.RED);
-                    dataSet.setLabel("Total Value");
-                    dataSet.setLineWidth(3f);
+                    BarDataSet dataSet = new BarDataSet(entries, null);
+                    dataSet.setValueTextColor(Color.BLACK);
+                    dataSet.setColors(Color.LTGRAY);
 
-                    LineData lineData = new LineData(dataSet);
-                    lineChart.setData(lineData);
-                    XAxis xAxis = lineChart.getXAxis();
+                    BarData barData = new BarData(dataSet);
+                    barData.setBarWidth(0.9f);
+                    barChart.setData(barData);
 
-// Set the x-axis to display dates in the format "dd/MM/yyyy"
-                    xAxis.setValueFormatter(new ValueFormatter() {
-                        private final SimpleDateFormat mFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    Description description = new Description();
+                    description.setEnabled(false);
+                    barChart.setDescription(description);
+
+                    Legend legend = barChart.getLegend();
+                    legend.setEnabled(false);
+
+                    barChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+                        @Override
+                        public void onValueSelected(Entry e, Highlight h) {
+                            float x = h.getX();
+                            float y = h.getY();
+
+                            // Hiển thị thông tin chi tiết
+                            Toast.makeText(Statistic.this, "Selected: x = " + x + ", y = " + y, Toast.LENGTH_SHORT).show();
+                        }
 
                         @Override
-                        public String getAxisLabel(float value, AxisBase axis) {
-                            return mFormat.format(new Date((long) value));
+                        public void onNothingSelected() {
                         }
                     });
-                    xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-                    xAxis.setGranularity(24 * 60 * 60 * 1000);
-                    xAxis.setDrawLabels(true);
-                    lineChart.invalidate();
+
+                    barChart.setFitBars(true);
+                    barChart.invalidate();
                 }
             }
 
@@ -119,5 +131,4 @@ public class Statistic extends AppCompatActivity {
             }
         });
     }
-
 }

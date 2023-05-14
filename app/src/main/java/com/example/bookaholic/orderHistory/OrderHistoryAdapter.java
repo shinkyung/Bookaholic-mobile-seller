@@ -67,6 +67,9 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         else if (order.getOrderStatus().contains("Complete")) {
             holder.statusTxt.setTextColor(Color.GREEN);
         }
+        else{
+            holder.statusTxt.setTextColor(Color.BLACK);
+        }
         holder.totalTxt.setText(NumberFormat.getNumberInstance(Locale.US).format(order.getTotalPrice()) + " đ");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
