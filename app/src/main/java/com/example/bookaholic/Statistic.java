@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.components.Description;
@@ -22,7 +23,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -33,7 +39,8 @@ public class Statistic extends AppCompatActivity {
     ArrayList<Order> orderC;
 
     ImageView returnBtn;
-
+    TextView customers, profits, profitsTrend, customersTrend;
+ImageView trend, trendpro;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +48,12 @@ public class Statistic extends AppCompatActivity {
         setContentView(R.layout.activity_statistic);
 
         returnBtn = findViewById(R.id.returnStatistic);
+        customers = findViewById(R.id.customers);
+        profits = findViewById(R.id.profits);
+        profitsTrend = findViewById(R.id.profitsTrend);
+        trend = findViewById(R.id.trend);
+        customersTrend = findViewById(R.id.customersTrend);
+        trendpro = findViewById(R.id.trendpro);
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,6 +68,13 @@ public class Statistic extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists() && dataSnapshot.hasChildren()){
+                    int sum = 0;
+                    int customer = 0;
+                    float profitSum = 0;
+                    float profitCurrent = 0;
+                    Date currentDate = Calendar.getInstance().getTime();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    String formattedDate = dateFormat.format(currentDate);
                     for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                         User user = userSnapshot.getValue(User.class);
                         if (user.getOrderHistory() == null){
@@ -81,18 +101,40 @@ public class Statistic extends AppCompatActivity {
                         for (int j = i; j < orderC.size();j++){
                             count += 1;
                             if (dateStr.equalsIgnoreCase(orderC.get(j).getCreatedAt())){
+                                if (dateStr.equalsIgnoreCase(formattedDate)){
+                                    sum++;
+                                } else {
+                                    customer++;
+                                }
                                 value = value + orderC.get(j).getTotalPrice().floatValue() + count;
                                 orderC.remove(j);
                                 j--;
                             }
                         }
-
+                        if (dateStr.equalsIgnoreCase(formattedDate)){
+                            profitSum += value;
+                        } else {
+                            profitCurrent += value;
+                        }
                         entries.add(new BarEntry(day,value));
                     }
-
+                    customers.setText(String.valueOf(sum + customer));
+                    customersTrend.setText(String.valueOf(customer));
+                    if (customer > 0) {
+                        customersTrend.setTextColor(Color.GREEN);
+                        trend.setImageResource(R.drawable.baseline_trending_up_24);
+                        trend.setColorFilter(Color.GREEN);
+                    }
+                    profits.setText(NumberFormat.getNumberInstance(Locale.US).format(profitSum + profitCurrent) + " đ");
+                    profitsTrend.setText(NumberFormat.getNumberInstance(Locale.US).format(profitCurrent) + " đ");
+                    if (profitCurrent > 0) {
+                        profitsTrend.setTextColor(Color.GREEN);
+                        trendpro.setImageResource(R.drawable.baseline_trending_up_24);
+                        trendpro.setColorFilter(Color.GREEN);
+                    }
                     BarDataSet dataSet = new BarDataSet(entries, null);
-                    dataSet.setValueTextColor(Color.BLACK);
-                    dataSet.setColors(Color.LTGRAY);
+                    dataSet.setValueTextColor(R.color.dark_green);
+                    dataSet.setColors(R.color.dark_green);
 
                     BarData barData = new BarData(dataSet);
                     barData.setBarWidth(0.9f);
